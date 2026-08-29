@@ -81,8 +81,8 @@
     .elemento-escudo { padding:14px; border-radius:15px; background:#fff; border:1px solid #e1e9ee; font-size:12px; line-height:1.38; letter-spacing:0; color:#607087; }
     .elemento-escudo b { display:block; margin-bottom:3px; color:#203653; font-size:13px; }
     .presidencia { display:grid; grid-template-columns:.8fr 1.2fr; gap:0; overflow:hidden; border:1px solid #dce7ec; border-radius:29px; background:#fff; box-shadow:0 18px 42px #1930520b; }
-    .retrato { min-height:315px; position:relative; display:grid; place-items:center; overflow:hidden; background:radial-gradient(circle at 50% 24%,#fffac4 0 8%,transparent 8.5%),radial-gradient(circle at 50% 37%,#c5d1ff 0 17%,transparent 17.5%),linear-gradient(145deg,#0000ff,#034d9f); }
-    .retrato:after { content:"ELIAN\A VARELA"; white-space:pre; position:absolute; bottom:27px; left:28px; color:#fff; font-size:23px; line-height:.96; font-weight:800; letter-spacing:-.06em; }
+    .retrato { height:360px; min-height:0; position:relative; overflow:hidden; background:#10203a; }
+    .retrato img { display:block; width:100%; height:100%; position:absolute; inset:0; object-fit:cover; object-position:right center; }
     .retrato:before { content:""; width:140px; height:170px; margin-top:35px; border-radius:68px 68px 20px 20px; background:linear-gradient(#c69068 0 25%,#151d52 26% 52%,#e8f0ff 53% 100%); box-shadow:0 0 0 11px #ffffff16; }
     .presidencia-texto { padding:38px; }
     .presidencia-texto h3 { margin:10px 0 12px; font-size:36px; line-height:1; letter-spacing:-.06em; }
@@ -139,7 +139,7 @@
     body.lectura { font-size:18px; }
     body.lectura h1 { letter-spacing:-.045em; }
     body.contraste { filter:contrast(1.15); }
-    @media (max-width:760px) { .cabecera{top:8px;width:calc(100% - 20px);margin:8px auto -78px}.navegacion{display:none}.hero{min-height:770px;padding:130px 25px 52px}.emblema{width:320px;right:calc(50% - 160px);top:430px}.cuadricula{grid-template-columns:1fr 1fr}.divididas,.identidad,.presidencia,.escudo-seccion,.mapa-panel,.gobierno,.contacto{grid-template-columns:1fr}.seccion{padding-top:78px}main{width:min(100% - 28px,1120px)}footer{margin-top:74px;flex-wrap:wrap;padding:30px 24px}.pie-enlaces{order:3;width:100%;gap:12px}.marca{font-size:13px}.presidencia-texto{padding:29px}.acciones-ciudadanas,.lista-escudo,.noticias,.documentos,.ministros,form{grid-template-columns:1fr}.escudo-seccion{padding:22px} }
+    @media (max-width:760px) { .cabecera{top:8px;width:calc(100% - 20px);margin:8px auto -78px}.navegacion{display:none}.hero{min-height:770px;padding:130px 25px 52px}.emblema{width:320px;right:calc(50% - 160px);top:430px}.cuadricula{grid-template-columns:1fr 1fr}.divididas,.identidad,.presidencia,.escudo-seccion,.mapa-panel,.gobierno,.contacto{grid-template-columns:1fr}.seccion{padding-top:78px}main{width:min(100% - 28px,1120px)}footer{margin-top:74px;flex-wrap:wrap;padding:30px 24px}.pie-enlaces{order:3;width:100%;gap:12px}.marca{font-size:13px}.presidencia-texto{padding:29px}.acciones-ciudadanas,.lista-escudo,.noticias,.documentos,.ministros,form{grid-template-columns:1fr}.escudo-seccion{padding:22px} .retrato{height:330px} }
   </style>
 </head>
 <body>
