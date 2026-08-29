@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0000ff" />
+  <title>República de Zolmira — Innovación en equilibrio</title>
+  <style>
+    :root { --azul:#0000ff; --esmeralda:#00a86b; --oro:#ffd000; --tinta:#09142b; --blanco:#fff; --borde:rgba(255,255,255,.52); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--tinta); background:#f7fafb; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif; letter-spacing:-.025em; }
+    a { color:inherit; text-decoration:none; }
+    .cabecera { position:sticky; top:16px; z-index:10; width:min(1180px,calc(100% - 32px)); height:70px; margin:16px auto -86px; display:flex; align-items:center; justify-content:space-between; padding:0 18px 0 16px; border:1px solid var(--borde); border-radius:24px; background:rgba(255,255,255,.55); backdrop-filter:blur(8px) saturate(150%); -webkit-backdrop-filter:blur(8px) saturate(150%); box-shadow:0 16px 38px rgba(16,42,72,.10), inset 0 1px rgba(255,255,255,.85); }
+    .marca { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:760; }
+    .escudo-mini { width:36px; height:36px; padding:6px; border-radius:12px; background:linear-gradient(145deg,#fff,rgba(214,238,251,.7)); box-shadow:inset 0 1px #fff,0 4px 10px #00117716; }
+    .escudo-mini img { width:100%; height:100%; object-fit:contain; }
+    .navegacion { display:flex; gap:26px; font-size:13px; font-weight:650; color:#33425c; }
+    .navegacion a:hover { color:var(--azul); }
+    .idioma { font-size:13px; font-weight:700; padding:9px 12px; border:1px solid #dce3ea; border-radius:14px; background:#fff9; }
+    .hero { min-height:710px; position:relative; isolation:isolate; overflow:hidden; padding:160px max(32px,calc((100vw - 1120px)/2)) 85px; background:radial-gradient(circle at 74% 42%,#88e7ca 0,rgba(85,222,177,.42) 13%,transparent 32%),radial-gradient(circle at 32% 70%,rgba(66,106,255,.36),transparent 28%),linear-gradient(135deg,#e3e8ff 0%,#f2fbf8 51%,#d5f5ea 100%); }
+    .hero:before { content:""; position:absolute; z-index:-1; inset:0; opacity:.45; background:linear-gradient(114deg,transparent 30%,rgba(255,255,255,.72) 47%,transparent 61%); transform:translateX(-48%); animation:reflejo 8s ease-in-out infinite; }
+    @keyframes reflejo { 50%{transform:translateX(48%)} }
+    .etiqueta { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid rgba(255,255,255,.8); border-radius:999px; background:rgba(255,255,255,.55); font-size:12px; font-weight:800; color:#33506e; box-shadow:inset 0 1px #fff; }
+    .punto { width:7px; height:7px; border-radius:50%; background:var(--oro); box-shadow:0 0 12px var(--oro); }
+    h1 { max-width:640px; margin:23px 0 22px; font-size:clamp(55px,7vw,98px); line-height:.93; letter-spacing:-.07em; font-weight:780; }
+    h1 span { color:var(--azul); }
+    .hero p { width:min(455px,100%); font-size:18px; line-height:1.45; color:#425573; letter-spacing:-.018em; }
+    .botones { display:flex; gap:12px; margin-top:32px; }
+    .boton { padding:14px 19px; border-radius:15px; font-size:14px; font-weight:750; transition:.2s transform; }
+    .boton:hover { transform:translateY(-2px); }
+    .principal { background:var(--azul); color:#fff; box-shadow:0 10px 20px #0000ff35; }
+    .secundario { border:1px solid #cbd6df; background:#fff8; }
+    .emblema { position:absolute; width:min(39vw,460px); aspect-ratio:1; right:max(4vw,calc((100vw - 1230px)/2)); top:148px; display:grid; place-items:center; filter:drop-shadow(0 30px 28px rgba(8,32,87,.25)); animation:flotar 5s ease-in-out infinite; }
+    @keyframes flotar { 50% { transform:translateY(-15px) rotate(1.3deg); } }
+    .orbita { position:absolute; inset:4%; border:1px solid rgba(255,255,255,.55); border-radius:50%; transform:rotate(-24deg); }
+    .cristal { width:69%; aspect-ratio:1; display:grid; place-items:center; border:1px solid rgba(255,255,255,.8); border-radius:38% 62% 48% 52% / 45% 44% 56% 55%; background:linear-gradient(140deg,rgba(255,255,255,.85),rgba(255,255,255,.19) 38%,rgba(0,168,107,.27)); box-shadow:inset 9px 10px 18px #fff8,inset -12px -15px 30px #004bb130,0 20px 50px #004c9e2e; transform:rotate(-10deg); backdrop-filter:blur(8px); }
+    .cristal:after { content:""; position:absolute; width:33%; height:10%; top:27%; left:27%; border-radius:50%; background:#fff9; filter:blur(7px); transform:rotate(-21deg); }
+    .sol { width:49%; aspect-ratio:1; position:relative; display:grid; place-items:center; border-radius:50%; background:radial-gradient(circle at 32% 28%,#fffbd1,#ffd000 49%,#e5a400); box-shadow:0 0 25px #ffd000a0; }
+    .sol:before { content:"✦"; color:#fff; font-size:64px; line-height:1; transform:rotate(10deg); text-shadow:0 2px 7px #9c730055; }
+    .sigla { position:absolute; bottom:8%; font-size:13px; font-weight:900; letter-spacing:.22em; color:#0021bb; transform:rotate(-10deg); }
+    .imagen-emblema { width:75%; aspect-ratio:1; object-fit:cover; border:1px solid rgba(255,255,255,.82); border-radius:42% 58% 47% 53% / 43% 48% 52% 57%; background:#fff; box-shadow:inset 0 1px #fff,0 20px 50px #004c9e2e; transform:rotate(-7deg); }
+    main { width:min(1120px,calc(100% - 48px)); margin:-42px auto 0; position:relative; z-index:2; }
+    .metrica-contenedor { padding:20px; border:1px solid var(--borde); border-radius:29px; background:rgba(255,255,255,.44); backdrop-filter:blur(8px); box-shadow:0 20px 45px rgba(27,56,87,.1),inset 0 1px #fff; }
+    .cuadricula { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .metrica { min-height:156px; position:relative; overflow:hidden; padding:21px; border:1px solid rgba(255,255,255,.84); border-radius:21px; background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(248,253,255,.55)); box-shadow:inset 0 1px #fff; }
+    .metrica:after { content:""; position:absolute; right:-18px; bottom:-20px; width:70px; height:70px; border:9px solid #ffd00042; border-radius:50%; }
+    .metrica span { display:block; font-size:12px; color:#607087; font-weight:720; letter-spacing:0; }
+    .numero { margin-top:18px; font-size:35px; font-weight:790; letter-spacing:-.06em; }
+    .subida { margin-top:5px; font-size:12px; color:#009660; font-weight:750; letter-spacing:0; }
+    .seccion { padding:112px 0 0; }
+    .ceja { color:#008f61; font-size:12px; font-weight:850; letter-spacing:.09em; text-transform:uppercase; }
+    h2 { margin:11px 0 28px; font-size:clamp(34px,4vw,52px); line-height:1; letter-spacing:-.055em; }
+    .divididas { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .tarjeta-color { min-height:360px; position:relative; overflow:hidden; padding:33px; border-radius:28px; color:#fff; }
+    .azul { background:linear-gradient(142deg,#0000ff,#11169f); }
+    .verde { background:linear-gradient(142deg,#00a86b,#007b52); }
+    .tarjeta-color:before { content:""; position:absolute; inset:-80px -100px auto auto; width:260px; height:260px; border:1px solid #ffffff70; border-radius:45% 55% 60% 40%; }
+    .tarjeta-color:after { content:""; position:absolute; width:145%; height:150px; bottom:-93px; left:-20%; border-radius:50% 50% 0 0; background:linear-gradient(180deg,#fff4,#fff0); transform:rotate(-5deg); }
+    .tarjeta-color .ceja { color:#fff4a0; }
+    .tarjeta-color h3 { position:relative; z-index:1; max-width:330px; margin:13px 0; font-size:36px; line-height:1; letter-spacing:-.055em; }
+    .tarjeta-color p { position:relative; z-index:1; max-width:335px; margin:0; color:#ffffffc9; line-height:1.45; letter-spacing:-.01em; }
+    .enlace { position:absolute; z-index:1; bottom:29px; display:inline-flex; gap:9px; align-items:center; font-size:13px; font-weight:800; }
+    .flecha { width:26px; height:26px; display:grid; place-items:center; border-radius:50%; background:#fff; color:var(--tinta); }
+    footer { margin-top:112px; padding:36px max(32px,calc((100vw - 1120px)/2)); border-top:1px solid #e3e8ee; background:#fff; display:flex; gap:22px; align-items:center; justify-content:space-between; color:#6a7787; font-size:12px; letter-spacing:0; }
+    .pie-marca { display:flex; gap:8px; align-items:center; color:#263c5a; font-weight:750; }
+    .sol-pequeno { width:16px; height:16px; border-radius:50%; background:var(--oro); box-shadow:0 0 0 4px #ffd00025; }
+    .pie-enlaces,.redes { display:flex; gap:18px; }
+    .redes a { width:26px; height:26px; display:grid; place-items:center; border:1px solid #dbe2e9; border-radius:50%; color:#40516a; font-weight:800; }
+    .identidad { display:grid; grid-template-columns:1.02fr .98fr; gap:48px; align-items:center; }
+    .bandera { width:100%; display:block; border-radius:26px; border:1px solid #fff; box-shadow:0 22px 42px #1027501c; }
+    .leyenda { margin-top:13px; color:#65758c; font-size:12px; letter-spacing:0; }
+    .simbolos { display:grid; gap:11px; }
+    .simbolo { display:grid; grid-template-columns:16px 1fr; gap:12px; padding:14px 15px; border:1px solid #e2eaf0; border-radius:16px; background:#fff; font-size:13px; line-height:1.35; letter-spacing:0; }
+    .simbolo b { color:#1d314e; }
+    .marca-color { width:10px; height:10px; margin-top:4px; border-radius:50%; }
+    .escudo-seccion { display:grid; grid-template-columns:.85fr 1.15fr; align-items:center; gap:55px; padding:36px; border:1px solid #dce7ec; border-radius:30px; background:linear-gradient(135deg,#fff,#f3fbf8); box-shadow:0 18px 42px #1930520b; }
+    .escudo-grande { width:min(100%,390px); display:block; margin:auto; border-radius:50%; mix-blend-mode:multiply; filter:drop-shadow(0 16px 17px #0035a621); }
+    .escudo-seccion h3 { margin:10px 0 17px; font-size:39px; line-height:.98; letter-spacing:-.06em; }
+    .lista-escudo { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .elemento-escudo { padding:14px; border-radius:15px; background:#fff; border:1px solid #e1e9ee; font-size:12px; line-height:1.38; letter-spacing:0; color:#607087; }
+    .elemento-escudo b { display:block; margin-bottom:3px; color:#203653; font-size:13px; }
+    .presidencia { display:grid; grid-template-columns:.8fr 1.2fr; gap:0; overflow:hidden; border:1px solid #dce7ec; border-radius:29px; background:#fff; box-shadow:0 18px 42px #1930520b; }
+    .retrato { min-height:315px; position:relative; display:grid; place-items:center; overflow:hidden; background:radial-gradient(circle at 50% 24%,#fffac4 0 8%,transparent 8.5%),radial-gradient(circle at 50% 37%,#c5d1ff 0 17%,transparent 17.5%),linear-gradient(145deg,#0000ff,#034d9f); }
+    .retrato:after { content:"ELIAN\A VARELA"; white-space:pre; position:absolute; bottom:27px; left:28px; color:#fff; font-size:23px; line-height:.96; font-weight:800; letter-spacing:-.06em; }
+    .retrato:before { content:""; width:140px; height:170px; margin-top:35px; border-radius:68px 68px 20px 20px; background:linear-gradient(#c69068 0 25%,#151d52 26% 52%,#e8f0ff 53% 100%); box-shadow:0 0 0 11px #ffffff16; }
+    .presidencia-texto { padding:38px; }
+    .presidencia-texto h3 { margin:10px 0 12px; font-size:36px; line-height:1; letter-spacing:-.06em; }
+    .presidencia-texto p { margin:0; color:#52637b; font-size:15px; line-height:1.52; letter-spacing:-.01em; }
+    .cargo { margin-top:23px; color:#008f61; font-size:12px; font-weight:850; letter-spacing:.07em; text-transform:uppercase; }
+    dialog { width:min(510px,calc(100% - 32px)); padding:0; border:0; border-radius:26px; color:var(--tinta); background:rgba(255,255,255,.94); box-shadow:0 24px 70px #00133e4d; backdrop-filter:blur(8px); }
+    dialog::backdrop { background:rgba(7,22,48,.42); backdrop-filter:blur(4px); }
+    .dialogo { padding:32px; }
+    .dialogo h3 { margin:8px 0 10px; font-size:31px; letter-spacing:-.06em; }
+    .dialogo p { color:#53657b; line-height:1.5; letter-spacing:0; }
+    .cerrar { float:right; width:33px; height:33px; border:1px solid #dde5ec; border-radius:50%; background:#fff; color:#31425b; cursor:pointer; font-size:20px; }
+    .acciones-ciudadanas { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:21px; }
+    .accion { padding:13px 10px; border:1px solid #dbe5eb; border-radius:14px; background:#fff; color:#263b58; font:inherit; font-size:12px; font-weight:750; cursor:pointer; }
+    .accion:hover { border-color:var(--azul); color:var(--azul); }
+    .herramientas { position:fixed; z-index:11; right:20px; bottom:20px; display:grid; gap:8px; }
+    .herramientas button { width:43px; height:43px; border:1px solid #d8e1e9; border-radius:15px; background:#ffffffe8; box-shadow:0 8px 22px #08244b1a; color:#15375d; cursor:pointer; font-size:17px; }
+    .mapa-panel { display:grid; grid-template-columns:1.15fr .85fr; gap:25px; padding:28px; border:1px solid #dce7ec; border-radius:30px; background:linear-gradient(135deg,#f7fbff,#edfbf5); }
+    .mapa { min-height:340px; display:grid; place-items:center; border-radius:23px; background:radial-gradient(circle at 65% 25%,#fff8b2 0 2%,transparent 2.3%),linear-gradient(145deg,#bce7ff,#d9f5e8); overflow:hidden; }
+    .mapa svg { width:88%; max-height:300px; }
+    .region { cursor:pointer; transition:.18s; stroke:#fff; stroke-width:3; }
+    .region:hover,.region.activa { filter:brightness(1.08); stroke:#ffd000; stroke-width:5; }
+    .ficha-region { align-self:center; }
+    .ficha-region h3 { margin:9px 0; font-size:31px; letter-spacing:-.055em; }
+    .ficha-region p { color:#53657b; line-height:1.48; letter-spacing:0; }
+    .ficha-region small { color:#008f61; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+    .noticias { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .noticia { padding:22px; border:1px solid #dfe8ee; border-radius:22px; background:#fff; transition:.2s transform,.2s box-shadow; }
+    .noticia:hover { transform:translateY(-4px); box-shadow:0 15px 30px #122c4b10; }
+    .fecha { color:#008f61; font-size:11px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+    .noticia h3 { margin:12px 0 10px; font-size:22px; line-height:1.05; letter-spacing:-.05em; }
+    .noticia p { margin:0; color:#62728a; font-size:13px; line-height:1.45; letter-spacing:0; }
+    .gobierno { display:grid; grid-template-columns:.88fr 1.12fr; gap:18px; }
+    .agenda { padding:27px; border-radius:26px; background:var(--azul); color:#fff; }
+    .agenda h3,.gabinete h3 { margin:8px 0 20px; font-size:28px; letter-spacing:-.055em; }
+    .evento { display:grid; grid-template-columns:58px 1fr; gap:12px; padding:13px 0; border-top:1px solid #ffffff35; font-size:13px; line-height:1.35; letter-spacing:0; }
+    .evento b { color:#fff5a6; font-size:12px; }
+    .gabinete { padding:27px; border:1px solid #dce7ec; border-radius:26px; background:#fff; }
+    .ministros { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .ministro { padding:13px; border-radius:14px; background:#f5f9fb; font-size:12px; color:#65758c; letter-spacing:0; }
+    .ministro b { display:block; margin-bottom:3px; color:#1e3758; font-size:13px; }
+    .documentos { display:grid; grid-template-columns:repeat(4,1fr); gap:11px; }
+    .documento { min-height:126px; display:flex; flex-direction:column; justify-content:space-between; padding:17px; border:1px solid #dce6ed; border-radius:19px; background:#fff; color:#29415f; font:inherit; text-align:left; cursor:pointer; }
+    .documento:hover { border-color:var(--azul); box-shadow:0 11px 25px #0026bb12; }
+    .documento span { color:#008f61; font-size:11px; font-weight:850; letter-spacing:.07em; }
+    .documento b { font-size:16px; line-height:1.05; letter-spacing:-.04em; }
+    .contacto { display:grid; grid-template-columns:.8fr 1.2fr; gap:34px; padding:33px; border-radius:29px; background:linear-gradient(135deg,#eef2ff,#eafbF4); }
+    .contacto h3 { margin:8px 0; font-size:35px; line-height:1; letter-spacing:-.06em; }
+    .contacto p { color:#53657b; line-height:1.48; letter-spacing:0; }
+    form { display:grid; grid-template-columns:1fr 1fr; gap:10px; align-content:start; }
+    input,textarea { width:100%; padding:13px 14px; border:1px solid #d8e2ea; border-radius:13px; outline:none; background:#fffd; color:#213753; font:inherit; font-size:13px; }
+    input:focus,textarea:focus { border-color:var(--azul); box-shadow:0 0 0 3px #0000ff13; }
+    textarea,.campo-total { grid-column:1/-1; }
+    .mensaje-formulario { grid-column:1/-1; min-height:18px; margin:0; color:#008f61; font-size:12px; font-weight:750; letter-spacing:0; }
+    body.lectura { font-size:18px; }
+    body.lectura h1 { letter-spacing:-.045em; }
+    body.contraste { filter:contrast(1.15); }
+    @media (max-width:760px) { .cabecera{top:8px;width:calc(100% - 20px);margin:8px auto -78px}.navegacion{display:none}.hero{min-height:770px;padding:130px 25px 52px}.emblema{width:320px;right:calc(50% - 160px);top:430px}.cuadricula{grid-template-columns:1fr 1fr}.divididas,.identidad,.presidencia,.escudo-seccion,.mapa-panel,.gobierno,.contacto{grid-template-columns:1fr}.seccion{padding-top:78px}main{width:min(100% - 28px,1120px)}footer{margin-top:74px;flex-wrap:wrap;padding:30px 24px}.pie-enlaces{order:3;width:100%;gap:12px}.marca{font-size:13px}.presidencia-texto{padding:29px}.acciones-ciudadanas,.lista-escudo,.noticias,.documentos,.ministros,form{grid-template-columns:1fr}.escudo-seccion{padding:22px} }
+  </style>
+</head>
+<body>
+  <header class="cabecera">
+    <a class="marca" href="#inicio" aria-label="República de Zolmira, inicio"><span class="escudo-mini"><img src="recursos/escudo-oficial-zolmira.jpg" alt="Escudo de Zolmira"></span>REPÚBLICA DE ZOLMIRA</a>
+    <nav class="navegacion" aria-label="Navegación principal"><a href="#vision">Visión general</a><a href="#datos">Economía</a><a href="#identidad">Identidad</a><a href="#escudo">Escudo</a><a href="#presidencia">Presidencia</a><a href="#portal">Portal ciudadano</a></nav>
+    <button class="idioma" type="button" aria-label="Cambiar idioma">ES / EN</button>
+  </header>
+  <section class="hero" id="inicio">
+    <div class="etiqueta"><i class="punto"></i> REPÚBLICA DIGITAL · 2026</div>
+    <h1>Zolmira:<br><span>innovación</span><br>en equilibrio.</h1>
+    <p>Una nación que convierte el progreso sostenible en bienestar compartido, con la mirada puesta en las próximas generaciones.</p>
+    <div class="botones"><a class="boton principal" href="#vision">Descubrir Zolmira</a><button class="boton secundario" type="button" data-abrir="indicadores">Explorar indicadores</button></div>
+    <div class="emblema" aria-label="Emblema nacional de Zolmira"><div class="orbita"></div><img class="imagen-emblema" src="recursos/escudo-oficial-zolmira.jpg" alt="Escudo nacional de Zolmira"></div>
+  </section>
+  <main>
+    <section class="metrica-contenedor" id="datos" aria-label="Indicadores nacionales">
+      <div class="cuadricula">
+        <article class="metrica"><span>Crecimiento del PIB</span><div class="numero">6,8%</div><div class="subida">↑ 1,2% este año</div></article>
+        <article class="metrica"><span>Energía limpia</span><div class="numero">84%</div><div class="subida">↑ Meta 90% en 2030</div></article>
+        <article class="metrica"><span>Población</span><div class="numero">8,4 M</div><div class="subida">↑ Talento conectado</div></article>
+        <article class="metrica"><span>Índice de innovación</span><div class="numero">#12</div><div class="subida">↑ 3 posiciones</div></article>
+      </div>
+    </section>
+    <section class="seccion" id="vision">
+      <div class="ceja">Un modelo en armonía</div>
+      <h2>Dos fuerzas, un mismo horizonte.</h2>
+      <div class="divididas" id="equilibrio">
+        <article class="tarjeta-color azul"><div class="ceja">Sector público</div><h3>Infraestructura y ríos</h3><p>Conectamos regiones con redes resilientes, movilidad limpia y agua protegida para todos.</p><a class="enlace" href="#portal">Conocer la red nacional <span class="flecha">→</span></a></article>
+        <article class="tarjeta-color verde"><div class="ceja">Sector privado</div><h3>Empresa y agricultura</h3><p>Impulsamos ideas locales que alimentan al mundo y regeneran cada territorio.</p><a class="enlace" href="#portal">Explorar oportunidades <span class="flecha">→</span></a></article>
+      </div>
+    </section>
+    <section class="seccion" id="identidad">
+      <div class="identidad"><div><img class="bandera" src="recursos/bandera-zolmira.jpg" alt="Bandera oficial de la República de Zolmira"><div class="leyenda">Bandera nacional de Zolmira · Símbolo de unidad, luz y prosperidad.</div></div><div><div class="ceja">Identidad nacional</div><h2>Una bandera que habla de su gente.</h2><div class="simbolos"><div class="simbolo"><i class="marca-color" style="background:#0000ff"></i><div><b>Azul real</b><br>Representa las montañas, los ríos y la confianza de una nación conectada.</div></div><div class="simbolo"><i class="marca-color" style="background:#00a86b"></i><div><b>Verde esmeralda</b><br>Expresa la fertilidad de la tierra, la agricultura y el compromiso con la vida.</div></div><div class="simbolo"><i class="marca-color" style="background:#ffd000"></i><div><b>Sol dorado</b><br>Ocho rayos de luz simbolizan conocimiento, energía, esperanza y prosperidad compartida.</div></div><div class="simbolo"><i class="marca-color" style="background:#fff;border:1px solid #dce5ec"></i><div><b>Campo blanco</b><br>Es la paz, la transparencia y el acuerdo que une a toda Zolmira.</div></div></div></div></div>
+    </section>
+    <section class="seccion" id="escudo"><div class="escudo-seccion"><div><img class="escudo-grande" src="recursos/escudo-oficial-zolmira.jpg" alt="Escudo oficial de la República de Zolmira"></div><div><div class="ceja">Escudo nacional</div><h3>El paisaje que nos guía.</h3><p style="margin:0 0 18px;color:#52637b;line-height:1.5;letter-spacing:-.01em">El escudo de Zolmira reúne el territorio, la energía y la vocación de futuro de la República en un solo símbolo.</p><div class="lista-escudo"><div class="elemento-escudo"><b>Montañas</b>Resiliencia, conocimiento y los orígenes de nuestros ríos.</div><div class="elemento-escudo"><b>Río azul</b>Conectividad entre regiones y uso responsable del agua.</div><div class="elemento-escudo"><b>Valle verde</b>Fertilidad, agricultura regenerativa y equilibrio natural.</div><div class="elemento-escudo"><b>Sol de ocho puntas</b>Una luz común: educación, innovación y prosperidad para todos.</div></div></div></div></section>
+    <section class="seccion" id="regiones"><div class="ceja">Territorio conectado</div><h2>Regiones que avanzan juntas.</h2><div class="mapa-panel"><div class="mapa"><svg viewBox="0 0 520 350" role="img" aria-label="Mapa ilustrado de las regiones de Zolmira"><path class="region activa" data-region="cumbres" d="M72 86l130-50 71 89-73 91-125-35z" fill="#0000ff"/><path class="region" data-region="valle" d="M202 36l164 45 45 120-136 15-75-91z" fill="#00a86b"/><path class="region" data-region="delta" d="M72 181l128 35 75 0 82 89-111 24-143-57z" fill="#00c888"/><path class="region" data-region="solaria" d="M366 81l90 61-45 142-54 21-82-89 136-15z" fill="#2441e8"/><circle cx="276" cy="183" r="24" fill="#ffd000"/><path d="M80 252c92-49 143 59 317-45" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/></svg></div><div class="ficha-region"><small id="region-etiqueta">Región de las Cumbres</small><h3 id="region-titulo">Innovación desde las alturas.</h3><p id="region-texto">Centro de investigación climática y energía hidroeléctrica. Sus cuencas dan origen a la red hídrica nacional.</p><button class="boton principal" type="button" data-abrir="iniciativas">Ver proyectos regionales</button></div></div></section>
+    <section class="seccion" id="noticias"><div class="ceja">Actualidad</div><h2>Noticias de la República.</h2><div class="noticias"><article class="noticia"><div class="fecha">28 de agosto de 2026</div><h3>La Red Azul entra en operación.</h3><p>Nuevos corredores eléctricos conectan seis ciudades con energía de fuentes renovables.</p></article><article class="noticia"><div class="fecha">19 de agosto de 2026</div><h3>Semillas de futuro para el valle.</h3><p>El programa de agricultura regenerativa acompaña a 4.000 productores locales.</p></article><article class="noticia"><div class="fecha">08 de agosto de 2026</div><h3>Zolmira abre su laboratorio cívico.</h3><p>Ciudadanía y especialistas co-crearán soluciones para cada región del país.</p></article></div></section>
+    <section class="seccion" id="gobierno"><div class="ceja">Gobierno abierto</div><h2>Agenda y equipo de gobierno.</h2><div class="gobierno"><article class="agenda"><div class="ceja" style="color:#fff5a6">Próximos encuentros</div><h3>Agenda presidencial</h3><div class="evento"><b>02 SEP<br>09:00</b><span>Consejo nacional de cuencas<br><small>Puerto Claro</small></span></div><div class="evento"><b>05 SEP<br>14:30</b><span>Foro de innovación rural<br><small>Valle Central</small></span></div><div class="evento"><b>09 SEP<br>10:00</b><span>Apertura del Centro Aurora<br><small>Solaria</small></span></div></article><article class="gabinete"><div class="ceja">Gabinete de la República</div><h3>Un equipo interdisciplinario.</h3><div class="ministros"><div class="ministro"><b>Amara Niel</b>Transición ecológica</div><div class="ministro"><b>Tomás Riven</b>Innovación y ciencia</div><div class="ministro"><b>Lucía Orbel</b>Economía productiva</div><div class="ministro"><b>Darío Selan</b>Infraestructura nacional</div></div></article></div></section>
+    <section class="seccion" id="documentos"><div class="ceja">Información pública</div><h2>Biblioteca de la República.</h2><div class="documentos"><button class="documento" type="button" data-abrir="constitucion"><span>DOCUMENTO FUNDACIONAL</span><b>Constitución de Zolmira</b></button><button class="documento" type="button" data-abrir="himno"><span>SÍMBOLO NACIONAL</span><b>Himno de Zolmira</b></button><button class="documento" type="button" data-abrir="simbolos"><span>GUÍA OFICIAL</span><b>Símbolos patrios</b></button><button class="documento" type="button" data-abrir="datosabiertos"><span>TRANSPARENCIA</span><b>Datos abiertos</b></button></div></section>
+    <section class="seccion" id="presidencia"><div class="ceja">Casa de gobierno</div><h2>Liderazgo al servicio del equilibrio.</h2><article class="presidencia"><div class="retrato" aria-label="Retrato ilustrado del presidente Elian Varela"></div><div class="presidencia-texto"><div class="ceja">Presidencia de la República</div><h3>Dr. Elian Varela</h3><p>El presidente Varela encabeza una visión de Estado basada en la innovación útil, la protección del territorio y la prosperidad con oportunidades para cada ciudadano.</p><div class="cargo">Presidente de Zolmira · Período 2026–2030</div></div></article></section>
+    <section class="seccion" id="portal"><div class="ceja">Portal ciudadano</div><h2>Tu vínculo directo con Zolmira.</h2><div class="metrica-contenedor"><p style="margin:0;color:#52637b;line-height:1.5;letter-spacing:0">Consulta servicios, conoce las iniciativas públicas y participa en las decisiones que dan forma a la nación.</p><div class="acciones-ciudadanas"><button class="accion" type="button" data-abrir="tramites">Iniciar un trámite</button><button class="accion" type="button" data-abrir="iniciativas">Ver iniciativas</button><button class="accion" type="button" data-abrir="participacion">Participar ahora</button></div></div></section>
+    <section class="seccion" id="contacto"><div class="contacto"><div><div class="ceja">Atención ciudadana</div><h3>Estamos para escucharte.</h3><p>Escribe al centro de atención de Zolmira. Recibirás una respuesta orientativa a través del canal que indiques.</p></div><form id="formulario-contacto"><input required aria-label="Nombre completo" placeholder="Nombre completo"><input required type="email" aria-label="Correo electrónico" placeholder="Correo electrónico"><input class="campo-total" aria-label="Asunto" placeholder="Asunto"><textarea required rows="4" aria-label="Mensaje" placeholder="¿Cómo podemos ayudarte?"></textarea><button class="boton principal campo-total" type="submit">Enviar consulta</button><p class="mensaje-formulario" id="mensaje-formulario" aria-live="polite"></p></form></div></section>
+  </main>
+  <footer><div class="pie-marca"><span class="sol-pequeno"></span> República de Zolmira</div><div class="pie-enlaces"><a href="#inicio">Transparencia</a><a href="#inicio">Privacidad</a><a href="#inicio">Accesibilidad</a></div><div class="redes" aria-label="Redes sociales"><a href="#inicio" aria-label="Canal oficial">◉</a><a href="#inicio" aria-label="Comunidad oficial">⌁</a><a href="#inicio" aria-label="Noticias oficiales">↗</a></div></footer>
+  <div class="herramientas" aria-label="Herramientas de accesibilidad"><button id="boton-lectura" type="button" aria-label="Aumentar lectura">A</button><button id="boton-contraste" type="button" aria-label="Aumentar contraste">◐</button></div>
+  <dialog id="ventana"><div class="dialogo"><button class="cerrar" type="button" aria-label="Cerrar">×</button><div class="ceja" id="dialogo-ceja">Zolmira</div><h3 id="dialogo-titulo"></h3><p id="dialogo-texto"></p></div></dialog>
+  <script>
+    const contenidos={indicadores:['Indicadores nacionales','Los indicadores reflejan una economía en expansión, sostenida por energía renovable, educación tecnológica y comunidades productivas.'],tramites:['Trámites ciudadanos','El portal de servicios estará disponible próximamente. Aquí podrás solicitar documentos, revisar el estado de tus gestiones y recibir orientación.'],iniciativas:['Iniciativas públicas','Conoce los programas de movilidad limpia, protección de cuencas, conectividad regional y desarrollo agrícola regenerativo.'],participacion:['Participación ciudadana','Las consultas ciudadanas abrirán pronto. Tu voz ayudará a priorizar los proyectos de cada región de Zolmira.'],constitucion:['Constitución de Zolmira','El documento fundacional define una República democrática, sostenible y comprometida con la dignidad de cada persona.'],himno:['Himno de Zolmira','El himno celebra la unión entre las cumbres, los valles y la luz que guía el futuro compartido.'],simbolos:['Símbolos patrios','La bandera, el escudo y el himno protegen la identidad de Zolmira y su promesa de unidad y progreso.'],datosabiertos:['Datos abiertos','El catálogo de datos abiertos estará disponible próximamente con información verificable sobre economía, ambiente y servicios.']};
+    const ventana=document.querySelector('#ventana');
+    document.querySelectorAll('[data-abrir]').forEach(boton=>boton.addEventListener('click',()=>{const [titulo,texto]=contenidos[boton.dataset.abrir];document.querySelector('#dialogo-titulo').textContent=titulo;document.querySelector('#dialogo-texto').textContent=texto;ventana.showModal()}));
+    document.querySelector('.cerrar').addEventListener('click',()=>ventana.close());
+    const regiones={cumbres:['Región de las Cumbres','Innovación desde las alturas.','Centro de investigación climática y energía hidroeléctrica. Sus cuencas dan origen a la red hídrica nacional.'],valle:['Valle Central','El corazón productivo.','Un territorio de agricultura regenerativa, biotecnología y mercados locales de alto valor.'],delta:['Delta Verde','Naturaleza que prospera.','Humedales protegidos y comunidades que lideran la economía circular de Zolmira.'],solaria:['Solaria','Energía para el mañana.','Distrito solar y tecnológico donde se desarrollan soluciones de movilidad limpia.']};
+    document.querySelectorAll('.region').forEach(region=>region.addEventListener('click',()=>{document.querySelectorAll('.region').forEach(r=>r.classList.remove('activa'));region.classList.add('activa');const [etiqueta,titulo,texto]=regiones[region.dataset.region];document.querySelector('#region-etiqueta').textContent=etiqueta;document.querySelector('#region-titulo').textContent=titulo;document.querySelector('#region-texto').textContent=texto;}));
+    document.querySelector('#formulario-contacto').addEventListener('submit',evento=>{evento.preventDefault();document.querySelector('#mensaje-formulario').textContent='Gracias. Tu consulta fue recibida y será atendida por el equipo ciudadano.';evento.currentTarget.reset();});
+    document.querySelector('#boton-lectura').addEventListener('click',()=>document.body.classList.toggle('lectura'));
+    document.querySelector('#boton-contraste').addEventListener('click',()=>document.body.classList.toggle('contraste'));
+    document.querySelector('.idioma').addEventListener('click',function(){const ingles=this.textContent.includes('EN');this.textContent=ingles?'ES':'ES / EN';document.documentElement.lang=ingles?'en':'es';alert(ingles?'English version will be available shortly.':'El español es el idioma principal del portal.');});
+  </script>
+</body>
+</html>
