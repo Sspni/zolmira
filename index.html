@@ -1,0 +1,1993 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0021bb" />
+  <meta name="description" content="Portal Oficial de la República de Zolmira — Modelo de Economía Mixta, Innovación, Gobierno y Territorio." />
+  <title>República de Zolmira — Modelo de Economía Mixta & Portal Oficial</title>
+  <style>
+    :root {
+      --azul: #0021bb;
+      --azul-brillante: #2441e8;
+      --azul-suave: #eef3ff;
+      --azul-marino: #091530;
+      --esmeralda: #00a86b;
+      --esmeralda-suave: #e8f8f2;
+      --esmeralda-hover: #008f5a;
+      --oro: #ffd000;
+      --oro-oscuro: #d49b00;
+      --oro-suave: #fff9db;
+      --tinta: #0a172e;
+      --tinta-suave: #4a5c78;
+      --borde: rgba(220, 230, 242, 0.8);
+      --borde-luz: rgba(255, 255, 255, 0.7);
+      --fondo: #f5f9fc;
+      --blanco: #ffffff;
+      --sombra-suave: 0 10px 30px rgba(10, 23, 46, 0.06);
+      --sombra-media: 0 18px 42px rgba(9, 21, 48, 0.09);
+      --sombra-elevada: 0 26px 60px rgba(0, 33, 187, 0.14);
+      --radio-tarjeta: 24px;
+      --radio-sm: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--tinta);
+      background: var(--fondo);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: -0.015em;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font-family: inherit; }
+
+    /* BARRA DE NAVEGACIÓN */
+    .cabecera {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      width: min(1200px, calc(100% - 32px));
+      height: 72px;
+      margin: 14px auto -86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border: 1px solid var(--borde-luz);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      box-shadow: 0 14px 35px rgba(10, 25, 55, 0.08), inset 0 1px rgba(255, 255, 255, 0.95);
+    }
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--azul-marino);
+    }
+    .escudo-mini {
+      width: 38px;
+      height: 38px;
+      padding: 4px;
+      border-radius: 12px;
+      background: linear-gradient(140deg, #ffffff, #e0efff);
+      box-shadow: inset 0 1px #fff, 0 4px 12px rgba(0, 33, 187, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .escudo-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .navegacion {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 13.5px;
+      font-weight: 650;
+      color: #384860;
+    }
+    .navegacion a {
+      transition: color 0.18s ease;
+      position: relative;
+    }
+    .navegacion a:hover, .navegacion a.destacado {
+      color: var(--azul);
+    }
+    .badge-nav {
+      background: linear-gradient(135deg, var(--oro), var(--oro-oscuro));
+      color: #000;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 99px;
+      margin-left: 4px;
+      letter-spacing: 0.03em;
+    }
+    .acciones-cabecera {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .boton-expo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: linear-gradient(135deg, var(--azul), var(--azul-brillante));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 750;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 33, 187, 0.25);
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .boton-expo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 33, 187, 0.35);
+    }
+    .idioma {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 12px;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      background: #ffffff;
+      color: var(--tinta);
+      cursor: pointer;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 740px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 165px max(32px, calc((100vw - 1180px) / 2)) 90px;
+      background:
+        radial-gradient(circle at 74% 38%, rgba(0, 168, 107, 0.28) 0, rgba(0, 168, 107, 0.12) 16%, transparent 36%),
+        radial-gradient(circle at 25% 65%, rgba(0, 33, 187, 0.18) 0, transparent 32%),
+        radial-gradient(circle at 85% 80%, rgba(255, 208, 0, 0.15) 0, transparent 25%),
+        linear-gradient(135deg, #e7edff 0%, #f4fcf9 48%, #daf5ec 100%);
+    }
+    .hero:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: 0.55;
+      background: linear-gradient(114deg, transparent 28%, rgba(255, 255, 255, 0.8) 48%, transparent 62%);
+      transform: translateX(-48%);
+      animation: reflejo 9s ease-in-out infinite;
+    }
+    @keyframes reflejo { 50% { transform: translateX(48%); } }
+
+    .etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #1e3a5f;
+      box-shadow: inset 0 1px #fff, 0 3px 10px rgba(0, 0, 0, 0.03);
+    }
+    .punto {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--oro);
+      box-shadow: 0 0 10px var(--oro);
+    }
+    h1 {
+      max-width: 680px;
+      margin: 22px 0 20px;
+      font-size: clamp(48px, 6.2vw, 86px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 850;
+      color: var(--azul-marino);
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--azul), var(--azul-brillante));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      width: min(520px, 100%);
+      font-size: 17.5px;
+      line-height: 1.5;
+      color: var(--tinta-suave);
+      margin-bottom: 30px;
+    }
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .boton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 15px;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      text-align: center;
+    }
+    .boton:hover {
+      transform: translateY(-2px);
+    }
+    .principal {
+      background: var(--azul);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(0, 33, 187, 0.3);
+    }
+    .principal:hover {
+      box-shadow: 0 14px 30px rgba(0, 33, 187, 0.4);
+    }
+    .secundario {
+      border: 1px solid rgba(180, 200, 225, 0.9);
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--azul-marino);
+      backdrop-filter: blur(6px);
+    }
+    .dorado {
+      background: linear-gradient(135deg, var(--oro), #f4b400);
+      color: #2b1f00;
+      box-shadow: 0 10px 24px rgba(255, 208, 0, 0.35);
+    }
+
+    /* EMBLEMA HERO */
+    .emblema {
+      position: absolute;
+      width: min(38vw, 440px);
+      aspect-ratio: 1;
+      right: max(3vw, calc((100vw - 1220px) / 2));
+      top: 140px;
+      display: grid;
+      place-items: center;
+      filter: drop-shadow(0 28px 36px rgba(0, 28, 90, 0.2));
+      animation: flotar 6s ease-in-out infinite;
+    }
+    @keyframes flotar {
+      50% { transform: translateY(-14px) rotate(1.2deg); }
+    }
+    .orbita {
+      position: absolute;
+      inset: 2%;
+      border: 1.5px dashed rgba(0, 33, 187, 0.3);
+      border-radius: 50%;
+      animation: rotar 30s linear infinite;
+    }
+    @keyframes rotar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .imagen-emblema {
+      width: 78%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      border-radius: 42% 58% 47% 53% / 43% 48% 52% 57%;
+      background: #fff;
+      box-shadow: inset 0 2px #fff, 0 20px 50px rgba(0, 33, 187, 0.2);
+    }
+    .tarjeta-flotante-economia {
+      position: absolute;
+      bottom: -10px;
+      left: -20px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: flotar-invertido 5s ease-in-out infinite;
+    }
+    @keyframes flotar-invertido {
+      50% { transform: translateY(8px); }
+    }
+    .icono-economia-mix {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--azul), var(--esmeralda));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    main {
+      width: min(1180px, calc(100% - 40px));
+      margin: -40px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* SECCIONES BASE */
+    .seccion {
+      padding: 100px 0 0;
+    }
+    .ceja {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--esmeralda-hover);
+      font-size: 12.5px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .ceja.azul { color: var(--azul); }
+    .ceja.oro { color: var(--oro-oscuro); }
+    h2 {
+      margin: 6px 0 22px;
+      font-size: clamp(32px, 3.8vw, 48px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+      color: var(--azul-marino);
+    }
+    .subtitulo-seccion {
+      max-width: 650px;
+      color: var(--tinta-suave);
+      font-size: 16px;
+      margin: -10px 0 35px;
+      line-height: 1.5;
+    }
+
+    /* TARJETAS MÉTRICAS DE ENTRADA */
+    .metrica-contenedor {
+      padding: 22px;
+      border: 1px solid var(--borde-luz);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--sombra-media), inset 0 1px #fff;
+    }
+    .cuadricula-metricas {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .metrica {
+      min-height: 145px;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(244, 250, 255, 0.7));
+      box-shadow: inset 0 1px #fff, 0 4px 15px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .metrica:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 33, 187, 0.08);
+    }
+    .metrica span {
+      display: block;
+      font-size: 12px;
+      color: #5b6f8a;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .numero {
+      margin-top: 14px;
+      font-size: 34px;
+      font-weight: 850;
+      letter-spacing: -0.05em;
+      color: var(--azul-marino);
+    }
+    .subida {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--esmeralda);
+      font-weight: 750;
+    }
+
+    /* MÓDULO ECONOMÍA MIXTA */
+    .modulo-economia {
+      background: #ffffff;
+      border: 1px solid var(--borde);
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: var(--sombra-media);
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .modulo-economia::after {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(0, 33, 187, 0.06), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Píldora de Exposición Destacada */
+    .banner-expo {
+      background: linear-gradient(135deg, #091530, #142852);
+      color: #ffffff;
+      padding: 24px 30px;
+      border-radius: 22px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 12px 30px rgba(9, 21, 48, 0.2);
+    }
+    .banner-expo-info h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .banner-expo-info p {
+      margin: 0;
+      font-size: 13.5px;
+      color: #b0c4de;
+      line-height: 1.4;
+    }
+    .banner-expo-btn {
+      white-space: nowrap;
+      padding: 12px 20px;
+      background: var(--oro);
+      color: #1a1200;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.18s;
+    }
+    .banner-expo-btn:hover {
+      transform: scale(1.04);
+    }
+
+    /* TRIADA DEL MODELO MIXTO */
+    .triada-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .tarjeta-pilar {
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid #e1ebf5;
+      background: #fbfdff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tarjeta-pilar:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sombra-suave);
+    }
+    .tarjeta-pilar.publico {
+      border-top: 5px solid var(--azul);
+      background: linear-gradient(180deg, #f3f6ff 0%, #ffffff 60%);
+    }
+    .tarjeta-pilar.privado {
+      border-top: 5px solid var(--esmeralda);
+      background: linear-gradient(180deg, #f0faf5 0%, #ffffff 60%);
+    }
+    .tarjeta-pilar.mixto {
+      border-top: 5px solid var(--oro-oscuro);
+      background: linear-gradient(180deg, #fffcf0 0%, #ffffff 60%);
+    }
+    .pilar-encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .pilar-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 99px;
+      letter-spacing: 0.04em;
+    }
+    .publico .pilar-badge { background: #dce5ff; color: var(--azul); }
+    .privado .pilar-badge { background: #d3f3e4; color: var(--esmeralda-hover); }
+    .mixto .pilar-badge { background: #fff0b3; color: #805b00; }
+
+    .pilar-porcentaje {
+      font-size: 26px;
+      font-weight: 850;
+      color: var(--azul-marino);
+    }
+    .tarjeta-pilar h4 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      color: var(--azul-marino);
+      font-weight: 800;
+    }
+    .tarjeta-pilar p {
+      font-size: 13.5px;
+      color: var(--tinta-suave);
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+    .pilar-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12.5px;
+      color: #384c66;
+    }
+    .pilar-lista li {
+      padding: 7px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pilar-lista li::before {
+      content: "✓";
+      font-weight: 900;
+    }
+    .publico .pilar-lista li::before { color: var(--azul); }
+    .privado .pilar-lista li::before { color: var(--esmeralda); }
+    .mixto .pilar-lista li::before { color: var(--oro-oscuro); }
+
+    /* SECCIÓN INTERACTIVA: LAS 3 PREGUNTAS ECONÓMICAS */
+    .preguntas-economicas {
+      background: #f8fbfe;
+      border: 1px solid #dce8f4;
+      border-radius: 26px;
+      padding: 36px;
+      margin-bottom: 48px;
+    }
+    .preguntas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .pestanas-preguntas {
+      display: flex;
+      gap: 8px;
+      background: #e8f0f8;
+      padding: 5px;
+      border-radius: 16px;
+    }
+    .tab-btn {
+      padding: 10px 18px;
+      border: none;
+      background: transparent;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 750;
+      color: #4b607c;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.activo {
+      background: #ffffff;
+      color: var(--azul);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    .contenido-pregunta {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .contenido-pregunta.activo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .caja-pregunta {
+      padding: 24px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #e1ecf6;
+    }
+    .caja-pregunta h5 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .caja-pregunta.sector-pub h5 { color: var(--azul); }
+    .caja-pregunta.sector-priv h5 { color: var(--esmeralda); }
+    .caja-pregunta p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--tinta-suave);
+      line-height: 1.55;
+    }
+    .destaque-pregunta {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #f2f7fc;
+      border-left: 3px solid var(--azul);
+      border-radius: 0 10px 10px 0;
+      font-size: 12px;
+      color: #273b54;
+      font-weight: 600;
+    }
+    .caja-pregunta.sector-priv .destaque-pregunta {
+      border-left-color: var(--esmeralda);
+      background: #edf8f3;
+    }
+
+    /* INDICADORES MACROECONÓMICOS DE ZOLMIRA */
+    .macro-panel {
+      margin-bottom: 48px;
+    }
+    .macro-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .macro-card {
+      padding: 20px;
+      border: 1px solid #e4edf6;
+      border-radius: 18px;
+      background: #ffffff;
+      border-left: 4px solid var(--azul);
+    }
+    .macro-card.verde { border-left-color: var(--esmeralda); }
+    .macro-card.oro { border-left-color: var(--oro-oscuro); }
+    .macro-card.morado { border-left-color: #7952b3; }
+    .macro-label {
+      font-size: 11.5px;
+      font-weight: 750;
+      color: #647a96;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .macro-valor {
+      font-size: 26px;
+      font-weight: 850;
+      color: var(--azul-marino);
+      margin: 6px 0;
+    }
+    .macro-desc {
+      font-size: 12px;
+      color: #4a5c76;
+      line-height: 1.4;
+    }
+
+    /* SECTORES ESTRATÉGICOS & EMPRESAS MODELO */
+    .sectores-estrategicos {
+      margin-bottom: 30px;
+    }
+    .grid-empresas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .empresa-card {
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid #e2edf7;
+      background: #ffffff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .empresa-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+    .empresa-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .tag-estatal { background: #dce5ff; color: var(--azul); }
+    .tag-privada { background: #d5f4e6; color: var(--esmeralda-hover); }
+    .tag-mixta { background: #fff0ba; color: #875c00; }
+    .empresa-card h5 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      color: var(--azul-marino);
+      font-weight: 800;
+    }
+    .empresa-card p {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--tinta-suave);
+      line-height: 1.45;
+    }
+
+    /* POLÍTICA FISCAL & MONETARIA */
+    .politicas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .politica-box {
+      padding: 26px;
+      border-radius: 20px;
+      background: #f6faff;
+      border: 1px solid #dce8f5;
+    }
+    .politica-box h4 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--azul-marino);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .politica-box ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--tinta-suave);
+      line-height: 1.6;
+    }
+    .politica-box li {
+      margin-bottom: 6px;
+    }
+
+    /* GUÍA RÁPIDA DE EXPOSICIÓN */
+    .guia-expo-container {
+      margin-top: 48px;
+      padding: 32px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #091530 0%, #0d224d 100%);
+      color: #ffffff;
+      box-shadow: var(--sombra-elevada);
+    }
+    .guia-expo-container h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: var(--oro);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+    }
+    .guia-expo-container p.sub-guia {
+      color: #bed2ec;
+      font-size: 14px;
+      margin: 0 0 24px;
+    }
+    .acordeon-expo {
+      display: grid;
+      gap: 12px;
+    }
+    .item-acordeon {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+    .item-acordeon summary {
+      padding: 16px 20px;
+      cursor: pointer;
+      font-size: 14.5px;
+      font-weight: 750;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .item-acordeon summary::-webkit-details-marker { display: none; }
+    .item-acordeon summary::after {
+      content: "+";
+      font-size: 18px;
+      color: var(--oro);
+    }
+    .item-acordeon[open] summary::after {
+      content: "−";
+    }
+    .item-acordeon-cuerpo {
+      padding: 0 20px 18px;
+      font-size: 13.5px;
+      color: #d1e2f7;
+      line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 12px;
+    }
+    .badge-clave {
+      display: inline-block;
+      background: rgba(255, 208, 0, 0.2);
+      color: var(--oro);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    /* SECCIÓN IDENTIDAD Y SÍMBOLOS */
+    .identidad {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .bandera {
+      width: 100%;
+      display: block;
+      border-radius: 26px;
+      border: 1px solid #fff;
+      box-shadow: var(--sombra-media);
+      background: linear-gradient(135deg, #0021bb 0%, #00a86b 100%);
+      aspect-ratio: 16/10;
+      object-fit: cover;
+    }
+    .leyenda {
+      margin-top: 13px;
+      color: #65758c;
+      font-size: 12px;
+    }
+    .simbolos { display: grid; gap: 11px; }
+    .simbolo {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid #e2eaf0;
+      border-radius: 16px;
+      background: #fff;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .simbolo b { color: #1d314e; }
+    .marca-color {
+      width: 12px;
+      height: 12px;
+      margin-top: 4px;
+      border-radius: 50%;
+    }
+
+    /* SECCIÓN ESCUDO */
+    .escudo-seccion {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      align-items: center;
+      gap: 50px;
+      padding: 40px;
+      border: 1px solid #dce7ec;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #fff, #f3fbf8);
+      box-shadow: var(--sombra-suave);
+    }
+    .escudo-grande {
+      width: min(100%, 360px);
+      display: block;
+      margin: auto;
+      border-radius: 20px;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 16px 20px rgba(0, 33, 187, 0.15));
+    }
+    .escudo-seccion h3 {
+      margin: 10px 0 17px;
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -0.055em;
+      color: var(--azul-marino);
+    }
+    .lista-escudo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .elemento-escudo {
+      padding: 15px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid #e1e9ee;
+      font-size: 12.5px;
+      line-height: 1.4;
+      color: #556880;
+    }
+    .elemento-escudo b {
+      display: block;
+      margin-bottom: 4px;
+      color: #1e3552;
+      font-size: 13.5px;
+    }
+
+    /* SECCIÓN REGIONES Y MAPA INTERACTIVO */
+    .mapa-panel {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 25px;
+      padding: 32px;
+      border: 1px solid #dce7ec;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #f7fbff, #edfbf5);
+      box-shadow: var(--sombra-suave);
+    }
+    .mapa {
+      min-height: 340px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: radial-gradient(circle at 65% 25%, #fff8b2 0 2%, transparent 2.3%), linear-gradient(145deg, #bce7ff, #d9f5e8);
+      overflow: hidden;
+    }
+    .mapa svg {
+      width: 88%;
+      max-height: 300px;
+    }
+    .region {
+      cursor: pointer;
+      transition: all 0.2s ease;
+      stroke: #fff;
+      stroke-width: 3;
+    }
+    .region:hover, .region.activa {
+      filter: brightness(1.12);
+      stroke: var(--oro);
+      stroke-width: 5;
+    }
+    .ficha-region {
+      align-self: center;
+    }
+    .ficha-region small {
+      color: var(--esmeralda-hover);
+      font-weight: 850;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .ficha-region h3 {
+      margin: 8px 0 12px;
+      font-size: 32px;
+      letter-spacing: -0.05em;
+      color: var(--azul-marino);
+    }
+    .ficha-region p {
+      color: #53657b;
+      line-height: 1.5;
+      font-size: 14.5px;
+      margin-bottom: 20px;
+    }
+
+    /* SECCIÓN PRESIDENCIA */
+    .presidencia {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid #dce7ec;
+      border-radius: 29px;
+      background: #fff;
+      box-shadow: var(--sombra-suave);
+    }
+    .retrato {
+      height: 380px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0d1e3d, #0021bb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .retrato img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      object-position: right center;
+    }
+    .retrato-silueta {
+      width: 140px;
+      height: 180px;
+      border-radius: 70px 70px 20px 20px;
+      background: linear-gradient(#f0ceb6 0 25%, #151d52 26% 52%, #e8f0ff 53% 100%);
+      box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.15);
+    }
+    .presidencia-texto {
+      padding: 40px;
+    }
+    .presidencia-texto h3 {
+      margin: 10px 0 12px;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -0.055em;
+      color: var(--azul-marino);
+    }
+    .presidencia-texto p {
+      margin: 0;
+      color: #52637b;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .cargo {
+      margin-top: 24px;
+      color: var(--esmeralda-hover);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    /* BIBLIOTECA & DOCUMENTOS */
+    .documentos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .documento {
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+      border: 1px solid #dce6ed;
+      border-radius: 18px;
+      background: #fff;
+      color: #29415f;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .documento:hover {
+      border-color: var(--azul);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 33, 187, 0.08);
+    }
+    .documento span {
+      color: var(--esmeralda-hover);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+    }
+    .documento b {
+      font-size: 16px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    /* CONTACTO */
+    .contacto {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 36px;
+      padding: 38px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #eef3ff, #e8f9f2);
+      box-shadow: var(--sombra-suave);
+    }
+    .contacto h3 {
+      margin: 8px 0;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--azul-marino);
+    }
+    .contacto p {
+      color: #53657b;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-content: start;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #d4e0eb;
+      border-radius: 13px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.95);
+      color: #213753;
+      font-size: 13.5px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--azul);
+      box-shadow: 0 0 0 3px rgba(0, 33, 187, 0.12);
+    }
+    textarea, .campo-total { grid-column: 1 / -1; }
+    .mensaje-formulario {
+      grid-column: 1 / -1;
+      min-height: 18px;
+      margin: 0;
+      color: var(--esmeralda);
+      font-size: 12.5px;
+      font-weight: 750;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 110px;
+      padding: 38px max(32px, calc((100vw - 1180px) / 2));
+      border-top: 1px solid #e3e8ee;
+      background: #ffffff;
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      justify-content: space-between;
+      color: #6a7787;
+      font-size: 12.5px;
+    }
+    .pie-marca {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      color: #263c5a;
+      font-weight: 800;
+    }
+    .sol-pequeno {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--oro);
+      box-shadow: 0 0 0 4px rgba(255, 208, 0, 0.25);
+    }
+    .pie-enlaces, .redes { display: flex; gap: 18px; }
+    .redes a {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #dbe2e9;
+      border-radius: 50%;
+      color: #40516a;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    /* MODAL / DIALOG */
+    dialog {
+      width: min(620px, calc(100% - 32px));
+      padding: 0;
+      border: 0;
+      border-radius: 26px;
+      color: var(--tinta);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 28px 80px rgba(0, 19, 62, 0.35);
+      backdrop-filter: blur(12px);
+    }
+    dialog::backdrop {
+      background: rgba(7, 22, 48, 0.5);
+      backdrop-filter: blur(5px);
+    }
+    .dialogo {
+      padding: 34px;
+      position: relative;
+    }
+    .dialogo h3 {
+      margin: 10px 0 14px;
+      font-size: 28px;
+      letter-spacing: -0.05em;
+      color: var(--azul-marino);
+    }
+    .dialogo-cuerpo {
+      color: #4a5d78;
+      line-height: 1.6;
+      font-size: 14.5px;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+    .dialogo-cuerpo p { margin-top: 0; }
+    .dialogo-cuerpo ul { padding-left: 20px; }
+    .dialogo-cuerpo li { margin-bottom: 8px; }
+    .cerrar {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 34px;
+      height: 34px;
+      border: 1px solid #dde5ec;
+      border-radius: 50%;
+      background: #fff;
+      color: #31425b;
+      cursor: pointer;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+      transition: background 0.18s;
+    }
+    .cerrar:hover { background: #f0f4f8; }
+
+    /* ACCESIBILIDAD */
+    .herramientas {
+      position: fixed;
+      z-index: 99;
+      right: 20px;
+      bottom: 20px;
+      display: grid;
+      gap: 8px;
+    }
+    .herramientas button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #d8e1e9;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 22px rgba(8, 36, 75, 0.12);
+      color: #15375d;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 750;
+      backdrop-filter: blur(6px);
+      transition: transform 0.18s;
+    }
+    .herramientas button:hover { transform: scale(1.08); }
+
+    body.lectura { font-size: 18px; }
+    body.lectura h1 { letter-spacing: -0.04em; }
+    body.contraste { filter: contrast(1.18); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .cuadricula-metricas, .macro-grid { grid-template-columns: repeat(2, 1fr); }
+      .triada-grid, .grid-empresas { grid-template-columns: 1fr; }
+      .contenido-pregunta.activo, .politicas-grid { grid-template-columns: 1fr; }
+      .identidad, .presidencia, .escudo-seccion, .mapa-panel, .contacto { grid-template-columns: 1fr; }
+      .documentos { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .cabecera { top: 8px; width: calc(100% - 20px); margin: 8px auto -78px; }
+      .navegacion { display: none; }
+      .hero { min-height: 820px; padding: 130px 22px 50px; }
+      .emblema { width: 300px; right: calc(50% - 150px); top: 480px; }
+      .cuadricula-metricas, .macro-grid, .documentos, form { grid-template-columns: 1fr; }
+      .banner-expo { flex-direction: column; align-items: flex-start; }
+      .modulo-economia { padding: 24px 18px; }
+      footer { flex-wrap: wrap; padding: 30px 20px; }
+      .pie-enlaces { order: 3; width: 100%; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABECERA DE NAVEGACIÓN -->
+  <header class="cabecera">
+    <a class="marca" href="#inicio" aria-label="República de Zolmira, inicio">
+      <span class="escudo-mini">
+        <img src="escudo-oficial-zolmira.jpg" alt="Escudo de Zolmira" onerror="this.outerHTML='<span style=\'font-weight:900;color:#0021bb;\'>✦</span>'">
+      </span>
+      REPÚBLICA DE ZOLMIRA
+    </a>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <a href="#economia" class="destacado">Economía Mixta <span class="badge-nav">EXPO</span></a>
+      <a href="#vision">Modelo</a>
+      <a href="#macro">Indicadores</a>
+      <a href="#identidad">Identidad</a>
+      <a href="#regiones">Regiones</a>
+      <a href="#presidencia">Presidencia</a>
+    </nav>
+    <div class="acciones-cabecera">
+      <button class="boton-expo" type="button" data-abrir="resumen-expo">
+        <span>🎤</span> Ficha de Exposición
+      </button>
+      <button class="idioma" type="button" aria-label="Cambiar idioma">ES / EN</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="inicio">
+    <div class="etiqueta"><i class="punto"></i> MODELO ECONÓMICO OFICIAL · REPÚBLICA DE ZOLMIRA 2026</div>
+    <h1>Zolmira:<br><span>economía mixta</span><br>en pleno equilibrio.</h1>
+    <p>Una nación donde la fuerza emprendedora del sector privado y la visión garante del Estado convergen para generar riqueza sostenible, innovación científica y bienestar social compartido.</p>
+    <div class="botones">
+      <a class="boton principal" href="#economia">Explorar Economía Mixta ↓</a>
+      <button class="boton dorado" type="button" data-abrir="resumen-expo">Preparar mi Exposición ✦</button>
+      <button class="boton secundario" type="button" data-abrir="indicadores">Datos Macroeconómicos</button>
+    </div>
+
+    <!-- EMBLEMA / ESCUDO NACIONAL -->
+    <div class="emblema" aria-label="Emblema nacional de Zolmira">
+      <div class="orbita"></div>
+      <img class="imagen-emblema" src="escudo-oficial-zolmira.jpg" alt="Escudo nacional de Zolmira" onerror="this.outerHTML='<div style=\'width:78%;aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,#0021bb,#00a86b);display:grid;place-items:center;color:#fff;font-size:60px;box-shadow:0 20px 40px rgba(0,33,187,0.25);\'>✦</div>'">
+      <div class="tarjeta-flotante-economia">
+        <div class="icono-economia-mix">Ɀ</div>
+        <div>
+          <div style="font-size: 11px; font-weight: 800; color: #506482;">MONEDA OFICIAL</div>
+          <div style="font-size: 14px; font-weight: 850; color: #091530;">Solmir (ZOM / Ɀ)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- MÉTRICAS DE ENTRADA -->
+    <section class="metrica-contenedor" id="datos" aria-label="Indicadores nacionales">
+      <div class="cuadricula-metricas">
+        <article class="metrica">
+          <span>Crecimiento del PIB</span>
+          <div class="numero">6,8%</div>
+          <div class="subida">↑ 1,2% este año (Sector Mixto)</div>
+        </article>
+        <article class="metrica">
+          <span>Inversión en I+D</span>
+          <div class="numero">4,8%</div>
+          <div class="subida">↑ 50% Público / 50% Privado</div>
+        </article>
+        <article class="metrica">
+          <span>Inflación Anual</span>
+          <div class="numero">2,1%</div>
+          <div class="subida">✓ Meta del Banco Central (BACZ)</div>
+        </article>
+        <article class="metrica">
+          <span>Índice Gini (Equidad)</span>
+          <div class="numero">0,25</div>
+          <div class="subida">★ Alta cohesión social</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECCIÓN PRINCIPAL: LA ECONOMÍA MIXTA DE ZOLMIRA
+         ================================================================ -->
+    <section class="seccion" id="economia">
+      <div class="ceja">Fundamento Teórico y Práctico</div>
+      <h2>El Modelo Zolmirense de Economía Mixta</h2>
+      <p class="subtitulo-seccion">Zolmira no es un sistema de libre mercado absoluto (capitalismo puro) ni una economía centralizada (socialismo puro). Es una <strong>Economía Social y Ecológica de Mercado</strong> que aprovecha lo mejor de ambos mundos.</p>
+
+      <div class="modulo-economia">
+        <!-- BANNER DE APOYO PARA LA EXPOSICIÓN -->
+        <div class="banner-expo">
+          <div class="banner-expo-info">
+            <h3><span>💡</span> ¿Vas a exponer sobre la economía de Zolmira?</h3>
+            <p>Hemos sintetizado la teoría económica, las 3 preguntas fundamentales, los porcentajes del PIB y las empresas clave para que tu presentación sea impecable.</p>
+          </div>
+          <button class="banner-expo-btn" type="button" data-abrir="resumen-expo">Abrir Ficha de Exposición</button>
+        </div>
+
+        <!-- TRIADA: ESTRUCTURA DEL PIB Y ROLES -->
+        <div class="triada-grid">
+          <!-- SECTOR PÚBLICO -->
+          <article class="tarjeta-pilar publico">
+            <div>
+              <div class="pilar-encabezado">
+                <span class="pilar-badge">ESTADO GARANTE</span>
+                <span class="pilar-porcentaje">30% PIB</span>
+              </div>
+              <h4>Sector Público</h4>
+              <p>El Estado actúa como rector estratégico, salvaguardando bienes públicos esenciales, soberanía hídrica-energética y equidad social.</p>
+              <ul class="pilar-lista">
+                <li><strong>Empresas Estratégicas:</strong> ENERZOL (energía) y ACZ (agua).</li>
+                <li><strong>Bienes Públicos:</strong> Salud universal, educación tecnológica y defensa.</li>
+                <li><strong>Regulación Antimonopolio:</strong> Protege al consumidor y a pymes.</li>
+                <li><strong>Fondo Soberano Zolmira:</strong> Ahorro intergeneracional de excedentes.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- SECTOR PRIVADO -->
+          <article class="tarjeta-pilar privado">
+            <div>
+              <div class="pilar-encabezado">
+                <span class="pilar-badge">MOTOR DE INNOVACIÓN</span>
+                <span class="pilar-porcentaje">56% PIB</span>
+              </div>
+              <h4>Sector Privado</h4>
+              <p>El motor productivo impulsado por la libre empresa, la competencia leal, los precios de mercado y la inversión nacional y extranjera.</p>
+              <ul class="pilar-lista">
+                <li><strong>Libertad de Emprendimiento:</strong> Apertura digital en 24h.</li>
+                <li><strong>Clústeres Privados:</strong> Startups de IA, agroindustria y biotecnología.</li>
+                <li><strong>Mecanismo de Precios:</strong> Libre fijación por oferta y demanda.</li>
+                <li><strong>Propiedad Privada:</strong> Seguridad jurídica e inviolabilidad de patentes.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ALIANZAS PÚBLICO-PRIVADAS (APP) -->
+          <article class="tarjeta-pilar mixto">
+            <div>
+              <div class="pilar-encabezado">
+                <span class="pilar-badge">SINERGIA MIXTA</span>
+                <span class="pilar-porcentaje">14% PIB</span>
+              </div>
+              <h4>Alianzas Mixtas (APP)</h4>
+              <p>Proyectos de gran escala donde el Estado financia infraestructura y riesgo inicial, mientras empresas privadas aportan eficiencia operativa.</p>
+              <ul class="pilar-lista">
+                <li><strong>Red Azul de Movilidad:</strong> Trenes y puertos eléctricos interconectados.</li>
+                <li><strong>Centros de Innovación BioSolar:</strong> Co-desarrollo científico.</li>
+                <li><strong>Complejos de Desalinización:</strong> Agua ecológica para la industria.</li>
+                <li><strong>Fondos de Co-Inversión Semilla:</strong> Capital riesgo 60/40.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- LAS 3 PREGUNTAS FUNDAMENTALES DE LA ECONOMÍA (INTERACTIVO) -->
+        <div class="preguntas-economicas">
+          <div class="preguntas-header">
+            <div>
+              <div class="ceja azul">Clave para tu examen / exposición</div>
+              <h3 style="margin: 4px 0 0; font-size: 26px; color: var(--azul-marino);">¿Cómo resuelve Zolmira las 3 preguntas económicas?</h3>
+            </div>
+            <div class="pestanas-preguntas" role="tablist">
+              <button class="tab-btn activo" data-tab="que">1. ¿Qué producir?</button>
+              <button class="tab-btn" data-tab="como">2. ¿Cómo producir?</button>
+              <button class="tab-btn" data-tab="paraquien">3. ¿Para quién producir?</button>
+            </div>
+          </div>
+
+          <!-- TAB 1: QUÉ PRODUCIR -->
+          <div class="contenido-pregunta activo" id="tab-que">
+            <div class="caja-pregunta sector-priv">
+              <h5><span>🏢</span> Por el Mercado (Sector Privado)</h5>
+              <p>Las preferencias y el poder adquisitivo de los consumidores determinan la producción de alimentos gourmet, software, entretenimiento, electrodomésticos y servicios comerciales.</p>
+              <div class="destaque-pregunta">Mecanismo: Ley de Oferta y Demanda sin fijación artificial de precios.</div>
+            </div>
+            <div class="caja-pregunta sector-pub">
+              <h5><span>🏛️</span> Por el Estado (Sector Público)</h5>
+              <p>El Estado planifica y produce bienes preferentes y estratégicos que el mercado desatendería: infraestructura hídrica, redes eléctricas limpias, salud hospitalaria universal y educación cuántica.</p>
+              <div class="destaque-pregunta">Mecanismo: Presupuesto General de la República e inversión estratégica.</div>
+            </div>
+          </div>
+
+          <!-- TAB 2: CÓMO PRODUCIR -->
+          <div class="contenido-pregunta" id="tab-como">
+            <div class="caja-pregunta sector-priv">
+              <h5><span>⚡</span> Eficiencia Privada</h5>
+              <p>Las empresas compiten entre sí para optimizar costos mediante tecnología, automatización, robótica y métodos de agricultura regenerativa.</p>
+              <div class="destaque-pregunta">Objetivo: Maximizar rentabilidad y calidad competitiva global.</div>
+            </div>
+            <div class="caja-pregunta sector-pub">
+              <h5><span>📜</span> Marco Regulatorio Estatal</h5>
+              <p>El Estado establece las reglas obligatorias del juego: ley de "Huella de Carbono Cero", estándares de salario digno vital, horarios laborales justos y reciclaje de ciclo cerrado.</p>
+              <div class="destaque-pregunta">Objetivo: Evitar externalidades negativas y proteger a trabajadores y ambiente.</div>
+            </div>
+          </div>
+
+          <!-- TAB 3: PARA QUIÉN PRODUCIR -->
+          <div class="contenido-pregunta" id="tab-paraquien">
+            <div class="caja-pregunta sector-priv">
+              <h5><span>💳</span> Distribución por Capacidad Adquisitiva</h5>
+              <p>Los bienes y servicios privados se distribuyen a quienes pueden pagarlos según sus ingresos, incentivando el talento, el esfuerzo individual y la inversión.</p>
+              <div class="destaque-pregunta">Principio: Mérito, productividad e innovación personal.</div>
+            </div>
+            <div class="caja-pregunta sector-pub">
+              <h5><span>🛡️</span> Garantía de Suelo Social Universal</h5>
+              <p>El Estado redistribuye la riqueza mediante impuestos progresivos para que <strong>ningún ciudadano</strong> carezca de salud, nutrición básica, educación de alta calidad, agua potable y pensión.</p>
+              <div class="destaque-pregunta">Principio: Equidad distributiva y dignidad humana incondicional.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INDICADORES MACROECONÓMICOS DE LA NACIÓN -->
+        <div class="macro-panel" id="macro">
+          <div class="ceja oro">Cuentas Nacionales · 2026</div>
+          <h3 style="margin: 6px 0 0; font-size: 26px; color: var(--azul-marino);">Radiografía Macroeconómica de Zolmira</h3>
+          
+          <div class="macro-grid">
+            <div class="macro-card">
+              <div class="macro-label">PIB Nominal Total</div>
+              <div class="macro-valor">142.500 M Ɀ</div>
+              <div class="macro-desc">Solmires (equivalente a $142.500 M USD). 6,8% de crecimiento interanual.</div>
+            </div>
+            <div class="macro-card verde">
+              <div class="macro-label">Tasa de Desempleo</div>
+              <div class="macro-valor">3,6%</div>
+              <div class="macro-desc">Pleno empleo técnico asistido por el Seguro de Reconversión Tecnológica.</div>
+            </div>
+            <div class="macro-card oro">
+              <div class="macro-label">Balanza Comercial</div>
+              <div class="macro-valor">+12.400 M Ɀ</div>
+              <div class="macro-desc">Superávit impulsado por exportaciones de baterías solares y biotecnología.</div>
+            </div>
+            <div class="macro-card morado">
+              <div class="macro-label">Deuda Pública / PIB</div>
+              <div class="macro-valor">28,4%</div>
+              <div class="macro-desc">Nivel de deuda sumamente bajo y sostenible respaldado por el Fondo Soberano.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMPRESAS Y SECTORES MODELO DE ZOLMIRA -->
+        <div class="sectores-estrategicos">
+          <div class="ceja">Ecosistema Empresarial</div>
+          <h3 style="margin: 6px 0 0; font-size: 26px; color: var(--azul-marino);">Empresas Representativas de cada Sector</h3>
+          
+          <div class="grid-empresas">
+            <!-- 1. ENERZOL -->
+            <div class="empresa-card">
+              <span class="empresa-tag tag-estatal">EMPRESA 100% ESTATAL</span>
+              <h5>ENERZOL (Energías de Zolmira)</h5>
+              <p>Gestiona los complejos hidroeléctricos de Las Cumbres y garantiza tarifas energéticas accesibles y limpias para toda la industria y los hogares.</p>
+            </div>
+
+            <!-- 2. SOLARIA BIOTECH -->
+            <div class="empresa-card">
+              <span class="empresa-tag tag-privada">EMPRESA 100% PRIVADA</span>
+              <h5>Solaria BioTech Inc.</h5>
+              <p>Líder multinacional privada en sintetización de biofertilizantes y paneles solares flexibles, fundada por emprendedores de la región Solaria.</p>
+            </div>
+
+            <!-- 3. RED AZUL FERROVIARIA -->
+            <div class="empresa-card">
+              <span class="empresa-tag tag-mixta">CONSORCIO MIXTO (APP)</span>
+              <h5>Red Azul Logística (Zol-Trans)</h5>
+              <p>51% capital estatal (vías férreas y estaciones) y 49% operadores privados (trenes magnéticos de carga y pasajeros de alta velocidad).</p>
+            </div>
+
+            <!-- 4. BANCO CENTRAL BACZ -->
+            <div class="empresa-card">
+              <span class="empresa-tag tag-estatal">ORGANISMO PÚBLICO AUTÓNOMO</span>
+              <h5>Banco Autónomo Central (BACZ)</h5>
+              <p>Emite el Solmir (Ɀ), controla la política monetaria y custodia las reservas de oro y certificados de créditos de carbono de la nación.</p>
+            </div>
+
+            <!-- 5. AGROVALLE COOP -->
+            <div class="empresa-card">
+              <span class="empresa-tag tag-privada">COOPERATIVA PRIVADA</span>
+              <h5>AgroValle Central</h5>
+              <p>Federación de más de 4.000 agricultores independientes que exportan café orgánico y frutas bio-certificadas a mercados globales.</p>
+            </div>
+
+            <!-- 6. BIOZOLMIRA FARMA -->
+            <div class="empresa-card">
+              <span class="empresa-tag tag-mixta">CONSORCIO MIXTO (APP)</span>
+              <h5>BioZolmira Terapéutica</h5>
+              <p>Laboratorio cofinanciado entre el Ministerio de Salud y farmacéuticas privadas para producir vacunas y medicamentos genéricos de costo cero.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- POLÍTICA FISCAL Y MONETARIA -->
+        <div class="politicas-grid">
+          <div class="politica-box">
+            <h4><span>⚖️</span> Política Fiscal Redistributiva</h4>
+            <ul>
+              <li><strong>Impuesto sobre la Renta Progresivo:</strong> Quienes más ganan aportan proporcionalmente más para financiar servicios públicos.</li>
+              <li><strong>Incentivo a la Reinversión en I+D:</strong> Reducción del impuesto corporativo del 25% al 12% a empresas que reinviertan utilidades en ciencia verde y empleo formal.</li>
+              <li><strong>Impuestos Pigouvianos ("Tasa Verde"):</strong> Desincentivan la contaminación cobrando por emisiones no neutralizadas.</li>
+            </ul>
+          </div>
+
+          <div class="politica-box">
+            <h4><span>🪙</span> Política Monetaria y Comercio</h4>
+            <ul>
+              <li><strong>Moneda Estable:</strong> El Solmir (Ɀ) mantiene un tipo de cambio flexible regulado con metas de inflación estables (rango 2%–3%).</li>
+              <li><strong>Libre Comercio con Cláusulas Ambientales:</strong> Zolmira tiene tratados de libre comercio con más de 40 naciones, exigiendo trazabilidad ecológica.</li>
+              <li><strong>Atracción de Capitales:</strong> Ventanilla única de inversión extranjera con garantía de repatriación de utilidades y seguridad jurídica.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- GUÍA RÁPIDA / ACORDEÓN PARA LA EXPOSICIÓN -->
+        <div class="guia-expo-container" id="guia-expo">
+          <span class="badge-clave">MATERIAL DE EXPOSICIÓN ORAL</span>
+          <h3>Preguntas Frecuentes para tu Defensa o Exposición</h3>
+          <p class="sub-guia">Despliega cada punto para repasar los argumentos económicos más sólidos sobre Zolmira:</p>
+
+          <div class="acordeon-expo">
+            <details class="item-acordeon" open>
+              <summary>¿Por qué la economía de Zolmira es Mixta y no Capitalista pura?</summary>
+              <div class="item-acordeon-cuerpo">
+                En un capitalismo puro, el mercado fija todos los precios y la provisión de salud, educación y energía queda en manos privadas, lo que generaría desigualdades extremas y falta de cobertura para los sectores más vulnerables. En Zolmira, el Estado interviene garantizando estos derechos básicos y protegiendo el medio ambiente, evitando fallos de mercado como monopolios naturales o contaminación descontrolada.
+              </div>
+            </details>
+
+            <details class="item-acordeon">
+              <summary>¿Por qué no es una economía Socialista o Centralizada?</summary>
+              <div class="item-acordeon-cuerpo">
+                En una economía socialista pura, el Estado es dueño de todos los medios de producción y fija los precios y la producción mediante planes quinquenales, lo que históricamente ha generado ineficiencia, escasez y falta de incentivo a innovar. En Zolmira existe <strong>plena propiedad privada</strong>, libre competencia, libertad de precios en el 90% de los bienes y un vibrante ecosistema de emprendimiento y startups tecnológicas.
+              </div>
+            </details>
+
+            <details class="item-acordeon">
+              <summary>¿Qué papel juegan las Alianzas Público-Privadas (APP)?</summary>
+              <div class="item-acordeon-cuerpo">
+                Las APP representan el 14% del PIB de Zolmira y son la cúspide de la colaboración mixta: permiten desarrollar mega-obras (como la Red Azul de trenes de levitación o las plantas de desalinización) donde el Estado aporta el respaldo financiero y la visión territorial, mientras el sector privado aporta la velocidad, ingeniería de punta y eficiencia operativa.
+              </div>
+            </details>
+
+            <details class="item-acordeon">
+              <summary>¿Cómo financia Zolmira su gasto social sin quebrar?</summary>
+              <div class="item-acordeon-cuerpo">
+                A través de un sistema tributario moderno, digital y progresivo (sin evasión gracias al sistema blockchain del BACZ), impuestos a externalidades contaminantes ("Tasas Verdes"), utilidades de las empresas estatales como ENERZOL, y los rendimientos financieros del Fondo Soberano de Innovación de Zolmira.
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN IDENTIDAD NACIONAL -->
+    <section class="seccion" id="identidad">
+      <div class="identidad">
+        <div>
+          <img class="bandera" src="bandera-zolmira.jpg" alt="Bandera oficial de la República de Zolmira" onerror="this.outerHTML='<div style=\'width:100%;aspect-ratio:16/10;border-radius:26px;background:linear-gradient(135deg,#0021bb,#00a86b);box-shadow:var(--sombra-media);display:grid;place-items:center;color:#fff;font-size:36px;font-weight:900;\'>BANDERA DE ZOLMIRA</div>'">
+          <div class="leyenda">Bandera nacional de Zolmira · Símbolo de unidad, soberanía y prosperidad compartida.</div>
+        </div>
+        <div>
+          <div class="ceja">Identidad nacional</div>
+          <h2>Una bandera que refleja el pacto social.</h2>
+          <div class="simbolos">
+            <div class="simbolo">
+              <i class="marca-color" style="background:#0021bb"></i>
+              <div><b>Azul real (El Estado & la Confianza)</b><br>Representa la solidez institucional, las cuencas hídricas protegidas y la infraestructura que une a los ciudadanos.</div>
+            </div>
+            <div class="simbolo">
+              <i class="marca-color" style="background:#00a86b"></i>
+              <div><b>Verde esmeralda (La Producción & la Tierra)</b><br>Expresa el dinamismo agrícola privado, la biodiversidad y el modelo de bioeconomía circular.</div>
+            </div>
+            <div class="simbolo">
+              <i class="marca-color" style="background:#ffd000"></i>
+              <div><b>Sol dorado (La Innovación & el Capital)</b><br>Ocho rayos simbolizan el conocimiento, la inversión en ciencia, la energía solar y el Solmir (Ɀ).</div>
+            </div>
+            <div class="simbolo">
+              <i class="marca-color" style="background:#fff;border:1px solid #dce5ec"></i>
+              <div><b>Campo blanco (La Transparencia & el Equilibrio)</b><br>Simboliza la paz social, la libre competencia justa y la honestidad en las cuentas públicas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN ESCUDO -->
+    <section class="seccion" id="escudo">
+      <div class="escudo-seccion">
+        <div>
+          <img class="escudo-grande" src="escudo-oficial-zolmira.jpg" alt="Escudo oficial de la República de Zolmira" onerror="this.outerHTML='<div style=\'width:300px;height:300px;margin:auto;border-radius:50%;background:linear-gradient(140deg,#ffffff,#dcedfc);display:grid;place-items:center;font-size:70px;color:#0021bb;box-shadow:var(--sombra-media);\'>✦</div>'">
+        </div>
+        <div>
+          <div class="ceja">Escudo nacional</div>
+          <h3>La heráldica del progreso sostenible.</h3>
+          <p style="margin:0 0 18px;color:#52637b;line-height:1.55;">El escudo de Zolmira condensa la geografía productiva y los sectores que sostienen la economía de la República en un solo emblema.</p>
+          <div class="lista-escudo">
+            <div class="elemento-escudo"><b>Montañas del Norte</b>Reserva minera sostenible y generación hidroeléctrica de ENERZOL.</div>
+            <div class="elemento-escudo"><b>Río Central Azul</b>Vía fluvial de transporte logístico neutral y riego para cooperativas.</div>
+            <div class="elemento-escudo"><b>Valle Fértil</b>Centro agroindustrial privado con tecnología de agricultura regenerativa.</div>
+            <div class="elemento-escudo"><b>Sol de Ocho Puntas</b>Inversión en educación superior, investigación cuántica y ciencia aplicada.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN REGIONES ECONÓMICAS Y MAPA -->
+    <section class="seccion" id="regiones">
+      <div class="ceja">Territorio y Polos de Desarrollo</div>
+      <h2>Cuatro regiones productivas integradas.</h2>
+      <div class="mapa-panel">
+        <div class="mapa">
+          <svg viewBox="0 0 520 350" role="img" aria-label="Mapa ilustrado de las regiones económicas de Zolmira">
+            <path class="region activa" data-region="cumbres" d="M72 86l130-50 71 89-73 91-125-35z" fill="#0021bb"/>
+            <path class="region" data-region="valle" d="M202 36l164 45 45 120-136 15-75-91z" fill="#00a86b"/>
+            <path class="region" data-region="delta" d="M72 181l128 35 75 0 82 89-111 24-143-57z" fill="#00c888"/>
+            <path class="region" data-region="solaria" d="M366 81l90 61-45 142-54 21-82-89 136-15z" fill="#2441e8"/>
+            <circle cx="276" cy="183" r="24" fill="#ffd000"/>
+            <path d="M80 252c92-49 143 59 317-45" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ficha-region">
+          <small id="region-etiqueta">Región de las Cumbres (Sector Público Dominante)</small>
+          <h3 id="region-titulo">Complejos Hidroeléctricos y Ciencia.</h3>
+          <p id="region-texto">Sede de los mayores embalses y plantas de ENERZOL. Produce el 60% de la electricidad nacional y alberga los centros de investigación criogénica y climática del Estado.</p>
+          <button class="boton principal" type="button" data-abrir="iniciativas">Ver Inversiones Regionales</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PRESIDENCIA -->
+    <section class="seccion" id="presidencia">
+      <div class="ceja">Poder Ejecutivo</div>
+      <h2>Liderazgo institucional y estabilidad.</h2>
+      <article class="presidencia">
+        <div class="retrato">
+          <img src="presidente-elian-varela.jpg" alt="Dr. Elian Varela, presidente de la República de Zolmira" onerror="this.style.display='none'">
+          <div class="retrato-silueta"></div>
+        </div>
+        <div class="presidencia-texto">
+          <div class="ceja">Presidencia de la República</div>
+          <h3>Dr. Elian Varela</h3>
+          <p>Economista egresado del Instituto Tecnológico de Solaria y Doctor en Políticas Públicas. Su gestión se enfoca en el fortalecimiento de la libre competencia, la solvencia fiscal, la inversión en ciencia y la erradicación de la pobreza extrema mediante la economía mixta equilibrada.</p>
+          <div class="cargo">Presidente Constitucional de Zolmira · Período 2026–2030</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- BIBLIOTECA DE DOCUMENTOS PÚBLICOS -->
+    <section class="seccion" id="documentos">
+      <div class="ceja">Información Oficial y Transparencia</div>
+      <h2>Biblioteca Económica e Institucional.</h2>
+      <div class="documentos">
+        <button class="documento" type="button" data-abrir="doc-plan-eco">
+          <span>MARCO ECONÓMICO</span>
+          <b>Plan Nacional de Desarrollo Mixto 2026–2030</b>
+        </button>
+        <button class="documento" type="button" data-abrir="doc-ley-competencia">
+          <span>LEGISLACIÓN</span>
+          <b>Ley General de Libre Competencia y Pymes</b>
+        </button>
+        <button class="documento" type="button" data-abrir="doc-banco-central">
+          <span>POLÍTICA MONETARIA</span>
+          <b>Estatuto del Banco Autónomo Central (BACZ)</b>
+        </button>
+        <button class="documento" type="button" data-abrir="constitucion">
+          <span>CONSTITUCIÓN</span>
+          <b>Régimen Económico Constitucional (Art. 45-60)</b>
+        </button>
+      </div>
+    </section>
+
+    <!-- CONTACTO Y ATENCIÓN CIUDADANA -->
+    <section class="seccion" id="contacto">
+      <div class="contacto">
+        <div>
+          <div class="ceja">Atención y Consultas</div>
+          <h3>Ministerio de Economía y Desarrollo Productivo</h3>
+          <p>¿Tienes dudas sobre cómo registrar una empresa en Zolmira, postular a un fondo de innovación o solicitar datos macroeconómicos para tu estudio o exposición? Escríbenos.</p>
+        </div>
+        <form id="formulario-contacto">
+          <input required aria-label="Nombre completo" placeholder="Nombre completo">
+          <input required type="email" aria-label="Correo electrónico" placeholder="Correo electrónico">
+          <input class="campo-total" aria-label="Asunto" placeholder="Asunto (ej. Consulta para Exposición Escolar)">
+          <textarea required rows="4" aria-label="Mensaje" placeholder="Escribe tu consulta sobre la economía de Zolmira..."></textarea>
+          <button class="boton principal campo-total" type="submit">Enviar consulta</button>
+          <p class="mensaje-formulario" id="mensaje-formulario" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="pie-marca">
+      <span class="sol-pequeno"></span> República de Zolmira · Portal Oficial de Economía y Estado
+    </div>
+    <div class="pie-enlaces">
+      <a href="#economia">Economía Mixta</a>
+      <a href="#datos">Datos Abiertos</a>
+      <a href="#identidad">Símbolos</a>
+      <a href="#presidencia">Gobierno</a>
+    </div>
+    <div class="redes" aria-label="Canales oficiales">
+      <a href="#inicio" title="Red Oficial">◉</a>
+      <a href="#inicio" title="Portal Financiero">Ɀ</a>
+      <a href="#inicio" title="Transparencia">↗</a>
+    </div>
+  </footer>
+
+  <!-- BOTONES FLOTANTES DE ACCESIBILIDAD -->
+  <div class="herramientas" aria-label="Herramientas de accesibilidad">
+    <button id="boton-lectura" type="button" title="Aumentar tamaño de texto">A+</button>
+    <button id="boton-contraste" type="button" title="Modo alto contraste">◐</button>
+  </div>
+
+  <!-- MODAL PRINCIPAL -->
+  <dialog id="ventana">
+    <div class="dialogo">
+      <button class="cerrar" type="button" aria-label="Cerrar ventana">×</button>
+      <div class="ceja" id="dialogo-ceja">República de Zolmira</div>
+      <h3 id="dialogo-titulo">Título del Documento</h3>
+      <div class="dialogo-cuerpo" id="dialogo-texto"></div>
+    </div>
+  </dialog>
+
+  <script>
+    // CONTENIDOS DEL MODAL Y DIÁLOGOS
+    const contenidos = {
+      'resumen-expo': [
+        'GUÍA MAESTRA PARA EXPONER SOBRE LA ECONOMÍA DE ZOLMIRA',
+        `<h4>1. Introducción: ¿Qué tipo de economía tiene Zolmira?</h4>
+        <p>Zolmira posee una <strong>Economía Mixta Social de Mercado Ecológica</strong>. Esto significa que combina la libertad de mercado, innovación y eficiencia del <strong>Sector Privado (56% del PIB)</strong> con la protección social, servicios esenciales y regulación del <strong>Sector Público (30% del PIB)</strong>, articulados por un <strong>14% de Alianzas Público-Privadas (APP)</strong>.</p>
+        
+        <h4>2. Las 3 Preguntas Clave que debes mencionar en tu exposición:</h4>
+        <ul>
+          <li><strong>¿Qué producir?</strong> Lo deciden los consumidores a través de la oferta y demanda en el mercado libre, mientras el Estado garantiza la producción de infraestructura, salud, educación y energía limpia.</li>
+          <li><strong>¿Cómo producir?</strong> Las empresas privadas eligen los métodos más eficientes e innovadores, pero siempre respetando las leyes laborales y ambientales fijadas por el Estado ("Huella Cero").</li>
+          <li><strong>¿Para quién producir?</strong> Para quienes compran en el mercado, pero con un "suelo social" universal asegurado por el Estado para que nadie caiga en la pobreza extrema.</li>
+        </ul>
+
+        <h4>3. Datos de Impacto para impresionar a tu profesor y audiencia:</h4>
+        <ul>
+          <li><strong>Moneda oficial:</strong> El <em>Solmir (Ɀ)</em>, emitido por el Banco Central Autónomo (BACZ).</li>
+          <li><strong>PIB:</strong> 142.500 Millones de Solmires, con un crecimiento anual del 6,8%.</li>
+          <li><strong>Baja desigualdad:</strong> Coeficiente Gini de 0,25 (uno de los más equitativos).</li>
+          <li><strong>Empresas icono:</strong> ENERZOL (estatal limpia), Solaria BioTech (privada líder) y Red Azul Zol-Trans (mixta).</li>
+        </ul>
+
+        <h4>4. Conclusión para cerrar tu presentación:</h4>
+        <p><em>"Zolmira demuestra que el crecimiento económico y la justicia social no son enemigos, sino dos caras de una misma moneda cuando el Estado y el mercado colaboran en equilibrio."</em></p>`
+      ],
+      'indicadores': [
+        'Indicadores Macroeconómicos Oficiales (2026)',
+        `<p>La economía de Zolmira se encuentra en una fase de expansión robusta y sostenible:</p>
+        <ul>
+          <li><strong>Crecimiento del PIB:</strong> 6,8% anual (liderado por exportaciones de energía limpia y biotecnología).</li>
+          <li><strong>Inflación:</strong> 2,1% anual (controlada por la tasa de interés de referencia del BACZ).</li>
+          <li><strong>Desempleo:</strong> 3,6% (pleno empleo técnico con seguro de transición digital).</li>
+          <li><strong>Inversión en I+D:</strong> 4,8% del PIB (el 50% financiado por el Estado y el 50% por firmas privadas).</li>
+          <li><strong>Población económicamente activa:</strong> 5,2 millones de trabajadores altamente capacitados.</li>
+        </ul>`
+      ],
+      'iniciativas': [
+        'Plan Estratégico de Inversiones Regionales',
+        `<p>Proyectos de inversión mixta aprobados para el bienio 2026–2027:</p>
+        <ul>
+          <li><strong>Red Ferroviaria de Levitación Solar:</strong> Conectará Las Cumbres con Solaria en solo 45 minutos.</li>
+          <li><strong>Distrito de Hidrógeno Verde del Delta:</strong> Complejo industrial para sustitución total de combustibles fósiles marítimos.</li>
+          <li><strong>Fondo Semilla Emprende Zolmira:</strong> 500 millones de Solmires para financiar 2.000 nuevas pymes tecnológicas y agrícolas.</li>
+        </ul>`
+      ],
+      'doc-plan-eco': [
+        'Plan Nacional de Desarrollo Mixto 2026–2030',
+        `<p>Documento rector de la política económica zolmirense que establece los 5 pilares estratégicos:</p>
+        <ol>
+          <li>Consolidación de la matriz energética 100% renovable.</li>
+          <li>Digitalización total de la administración pública y simplificación tributaria.</li>
+          <li>Atracción de 15.000 millones de Solmires en inversión extranjera directa de triple impacto (social, ambiental y económico).</li>
+          <li>Educación universitaria y técnica gratuita orientada a inteligencia artificial, robótica y bioeconomía.</li>
+          <li>Fortalecimiento del Fondo Soberano Intergeneracional.</li>
+        </ol>`
+      ],
+      'doc-ley-competencia': [
+        'Ley General de Libre Competencia y Protección al Emprendimiento',
+        `<p>Marco jurídico que prohíbe monopolios, oligopolios colusorios y prácticas predatorias:</p>
+        <ul>
+          <li><strong>Comisión Nacional Antimonopolio:</strong> Autoridad autónoma que fiscaliza fusiones y sanciona acuerdos de fijación de precios.</li>
+          <li><strong>Protección a las Pymes:</strong> Plazo máximo legal de pago de 30 días a pequeños proveedores por parte de grandes corporaciones.</li>
+          <li><strong>Ventanilla Única Digital:</strong> Registro y formalización de empresas en 24 horas sin costo arancelario.</li>
+        </ul>`
+      ],
+      'doc-banco-central': [
+        'Estatuto del Banco Autónomo Central de Zolmira (BACZ)',
+        `<p>El BACZ es un organismo técnico independiente del gobierno de turno, con las siguientes funciones constitucionales:</p>
+        <ul>
+          <li>Preservar el poder adquisitivo del Solmir (Ɀ).</li>
+          <li>Mantener la estabilidad financiera y la liquidez del sistema bancario público y privado.</li>
+          <li>Custodiar las reservas internacionales compuestas por divisas, oro ecológico y bonos de carbono soberanos.</li>
+        </ul>`
+      ],
+      'constitucion': [
+        'Constitución Política — Régimen Económico (Capítulo IV)',
+        `<p><strong>Artículo 45:</strong> La economía de la República de Zolmira es mixta, social y ecológica. Se funda en la libre iniciativa privada, la función social de la propiedad y la planificación democrática del Estado.</p>
+        <p><strong>Artículo 48:</strong> El Estado garantiza la propiedad privada y la libre competencia. Los recursos hídricos y el espectro electromagnético son patrimonio inalienable de la nación administrados bajo régimen público para el bien común.</p>
+        <p><strong>Artículo 52:</strong> Los servicios de salud preventiva y curativa, educación primaria y secundaria, y la seguridad social son derechos inalienables provistos de forma universal.</p>`
+      ]
+    };
+
+    // MANEJO DE VENTANA MODAL
+    const ventana = document.querySelector('#ventana');
+    const dialogoTitulo = document.querySelector('#dialogo-titulo');
+    const dialogoTexto = document.querySelector('#dialogo-texto');
+    const dialogoCeja = document.querySelector('#dialogo-ceja');
+
+    document.querySelectorAll('[data-abrir]').forEach(boton => {
+      boton.addEventListener('click', () => {
+        const id = boton.dataset.abrir;
+        if (contenidos[id]) {
+          const [titulo, html] = contenidos[id];
+          dialogoCeja.textContent = id.startsWith('doc') ? 'BIBLIOTECA OFICIAL' : (id === 'resumen-expo' ? 'GUÍA DE EXPOSICIÓN' : 'REPÚBLICA DE ZOLMIRA');
+          dialogoTitulo.textContent = titulo;
+          dialogoTexto.innerHTML = html;
+          ventana.showModal();
+        }
+      });
+    });
+
+    document.querySelector('.cerrar').addEventListener('click', () => ventana.close());
+    ventana.addEventListener('click', e => {
+      const rect = ventana.getBoundingClientRect();
+      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+        ventana.close();
+      }
+    });
+
+    // PESTAÑAS DE LAS 3 PREGUNTAS ECONÓMICAS
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('activo'));
+        document.querySelectorAll('.contenido-pregunta').forEach(c => c.classList.remove('activo'));
+        
+        btn.classList.add('activo');
+        const tabId = `tab-${btn.dataset.tab}`;
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add('activo');
+      });
+    });
+
+    // MAPA INTERACTIVO REGIONES
+    const regiones = {
+      cumbres: [
+        'Región de las Cumbres (Sector Público y Recursos)',
+        'Complejos Hidroeléctricos y Ciencia.',
+        'Sede de los mayores embalses y centrales de ENERZOL. Produce el 60% de la energía limpia del país y alberga centros de investigación climática del Estado.'
+      ],
+      valle: [
+        'Valle Central (Sector Privado y Cooperativo)',
+        'El Motor Agroindustrial y Biotecnológico.',
+        'Dominado por más de 4.000 cooperativas y empresas privadas exportadoras de superalimentos, café de altura y semillas bio-regenerativas.'
+      ],
+      delta: [
+        'Delta Verde (Economía Circular y Mixta)',
+        'Humedales, Puertos y Turismo Sostenible.',
+        'Zona de Alianzas Público-Privadas portuarias, ecoturismo de lujo y plantas de biopolímeros marinos con certificación de residuo cero.'
+      ],
+      solaria: [
+        'Distrito Solaria (Startups y Tecnología Privada)',
+        'El Silicon Valley de Zolmira.',
+        'Clúster tecnológico de libre mercado donde operan startups de inteligencia artificial, telecomunicaciones y manufactura de paneles solares fotovoltaicos.'
+      ]
+    };
+
+    document.querySelectorAll('.region').forEach(region => {
+      region.addEventListener('click', () => {
+        document.querySelectorAll('.region').forEach(r => r.classList.remove('activa'));
+        region.classList.add('activa');
+        const [etiqueta, titulo, texto] = regiones[region.dataset.region];
+        document.querySelector('#region-etiqueta').textContent = etiqueta;
+        document.querySelector('#region-titulo').textContent = titulo;
+        document.querySelector('#region-texto').textContent = texto;
+      });
+    });
+
+    // FORMULARIO DE CONTACTO
+    document.querySelector('#formulario-contacto').addEventListener('submit', evento => {
+      evento.preventDefault();
+      document.querySelector('#mensaje-formulario').textContent = '✓ Consulta enviada al Ministerio de Economía. Te responderemos en un plazo máximo de 24 horas.';
+      evento.currentTarget.reset();
+    });
+
+    // ACCESIBILIDAD (Aumento de letra y contraste)
+    document.querySelector('#boton-lectura').addEventListener('click', () => document.body.classList.toggle('lectura'));
+    document.querySelector('#boton-contraste').addEventListener('click', () => document.body.classList.toggle('contraste'));
+
+    // CAMBIO DE IDIOMA SIMULADO
+    document.querySelector('.idioma').addEventListener('click', function() {
+      const ingles = this.textContent.includes('EN');
+      this.textContent = ingles ? 'ES' : 'ES / EN';
+      document.documentElement.lang = ingles ? 'en' : 'es';
+      alert(ingles ? 'Economic data is fully available in Spanish. English executive summary available in the Expo Modal.' : 'Idioma principal: Español.');
+    });
+  </script>
+</body>
+</html>
